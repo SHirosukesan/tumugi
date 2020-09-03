@@ -1,0 +1,2 @@
+class Hoby < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class MyPublisher < ApplicationRecord
+end
