@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'assessments/index'
+  devise_for :users
   namespace :admin do
     get 'admins/index'
   end
