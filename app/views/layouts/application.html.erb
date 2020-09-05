@@ -9,7 +9,37 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+   <body>
+    <header>
+      <nav class="navbar navbar-default" style="background-color:#FFF;">
+        <div class="container-fiuld">
+          <div class="collapse navbar-collapse">
+            <nav class="nav navbar-nav navbar-left">
+              <span><%= link_to 'NaganoCake', root_path,data: {"turbolinks"=>false}, class: 'btn btn-default btn-lg navbar-btn' %></span>
+            </nav>
+            <nav class="nav navbar-nav navbar-right">
+              <!--会員がログインしている場合の表示 -->
+              <% if user_signed_in? %>
+                <span class="name">ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん!</span>
+                <span><%= link_to 'MyPage', root_path, class: 'btn btn-default navbar-btn' %></span>
+                <span><%= link_to 'List', root_path, class: 'btn btn-default navbar-btn' %></span>
+                <span><%= link_to 'Cart', root_path, class: 'btn btn-default navbar-btn' %></span>
+                <span><%= link_to 'Logout', root_path, method: :delete, class: 'btn btn-default navbar-btn' %></span>
+                <!--管理者がログインしている場合の表示-->
+              <% else %>
+                <span><%= link_to 'About', root_path, class: 'btn btn-default navbar-btn' %></span>
+                <span><%= link_to 'List', root_path, class: 'btn btn-default navbar-btn' %></span>
+                <span><%= link_to 'SignUp', root_path, class: 'btn btn-default navbar-btn' %></span>
+                <span><%= link_to 'Login', root_path, class: 'btn btn-default navbar-btn' %></span>
+              <% end %>
+            </nav>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
+    <footer>
+    <p class="footer-text">© All Rights Reserved By Nikusyokukei.<i class="fas fa-hamburger"></i>
+  </footer>
   </body>
 </html>

@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_09_05_084320) do
 
-  create_table "admins", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "assessments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,21 +19,21 @@ ActiveRecord::Schema.define(version: 2020_09_05_084320) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "chat_id"
-    t.integer "my_publisher_id"
-    t.integer "my_page_id"
+    t.integer "publisher_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer "my_page_id", null: false
+    t.integer "user_id", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "hobies", force: :cascade do |t|
-    t.integer "my_page_id", null: false
+    t.integer "user_id", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,41 +41,29 @@ ActiveRecord::Schema.define(version: 2020_09_05_084320) do
 
   create_table "matchings", force: :cascade do |t|
     t.integer "matching_id"
-    t.integer "my_publisher_id"
-    t.integer "my_page_id"
+    t.integer "publisher_id"
+    t.integer "user_id"
     t.boolean "status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "my_pages", force: :cascade do |t|
+  create_table "notifications", force: :cascade do |t|
+    t.integer "notification_id"
+    t.integer "publisher_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
-    t.string "reset_password_token"
-    t.integer "item_id", null: false
-    t.string "firstname", null: false
-    t.string "lastname", null: false
-    t.string "address", null: false
-    t.integer "postalcode", null: false
-    t.integer "image"
-    t.string "nicname", null: false
-    t.boolean "status", default: false, null: false
-    t.integer "number", null: false
-    t.integer "group_id", null: false
-    t.string "profile"
-    t.integer "age", null: false
-    t.integer "competence", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "my_publishers", force: :cascade do |t|
+  create_table "publishers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "reset_password_token"
-    t.integer "item_id", null: false
     t.string "firstname", null: false
     t.string "lastname", null: false
     t.string "address", null: false
     t.integer "postalcode", null: false
-    t.integer "image", null: false
+    t.integer "image_id", null: false
     t.string "nicname", null: false
     t.boolean "status", default: false, null: false
     t.integer "number", null: false
@@ -92,20 +75,9 @@ ActiveRecord::Schema.define(version: 2020_09_05_084320) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.integer "notification_id"
-    t.integer "my_publisher_id"
-    t.integer "my_page_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "publishers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "skills", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -116,15 +88,27 @@ ActiveRecord::Schema.define(version: 2020_09_05_084320) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
     t.datetime "created_at", null: false
+    t.string "firstname", null: false
+    t.string "lastname", null: false
+    t.string "address", null: false
+    t.integer "postalcode", null: false
+    t.integer "image_id", null: false
+    t.string "nicname", null: false
+    t.boolean "status", default: false, null: false
+    t.integer "number", null: false
+    t.integer "group_id", null: false
+    t.string "profile"
+    t.integer "age", null: false
+    t.integer "competence", null: false
+    t.string "name"
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "works", force: :cascade do |t|
-    t.integer "my_page_id", null: false
+    t.integer "user_id", null: false
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

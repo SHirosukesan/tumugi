@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'assessments/index'
   devise_for :users
+  root 'my_pages#top'
+  get 'assessments/index'
   namespace :admin do
     get 'admins/index'
   end

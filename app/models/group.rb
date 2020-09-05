@@ -1,3 +1,3 @@
 class Group < ApplicationRecord
-	has_many :my_page, dependent: :destroy
+	has_many :user, dependent: :destroy
 end

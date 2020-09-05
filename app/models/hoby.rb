@@ -1,3 +1,3 @@
 class Hoby < ApplicationRecord
-	belongs_to :my_page
+	belongs_to :user
 end
