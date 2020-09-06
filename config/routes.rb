@@ -1,20 +1,17 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  root 'my_pages#top'
+  root 'users#home'
   get 'assessments/index'
-  namespace :admin do
-    get 'admins/index'
-  end
   get 'matchings/index'
   get 'notifications/index'
   get 'chats/index'
-  get 'my_publishers/index'
   get 'publishers/index'
   get 'skills/index'
   get 'groups/index'
   get 'hobies/index'
   get 'works/index'
   get 'work/index'
-  get 'my_pages/index'
+  get 'user/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

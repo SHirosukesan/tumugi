@@ -33,19 +33,19 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
       t.datetime "created_at", null: false
       t.string "reset_password_token"
-      t.string "firstname", null: false
-      t.string "lastname", null: false
-      t.string "address", null: false
-      t.integer "postalcode", null: false
-      t.integer "image_id", null: false
-      t.string "nicname", null: false
-      t.boolean "status", default: false, null: false
-      t.integer "number", null: false
-      t.integer "group_id", null: false
+      t.string "firstname"
+      t.string "lastname"
+      t.string "address"
+      t.integer "postalcode"
+      t.integer "image_id"
+      t.string "nickname"
+      t.boolean "is_withdrawal", default: false, null: false
+      t.integer "number"
+      t.integer "group_id"
       t.string "profile"
-      t.integer "age", null: false
-      t.integer "competence", null: false
-      t.string :name
+      t.integer "age"
+      t.integer "competence"
+      t.string :name, null: false
       t.timestamps null: false
     end
 

@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
   </head>
 
    <body>
@@ -15,16 +16,18 @@
         <div class="container-fiuld">
           <div class="collapse navbar-collapse">
             <nav class="nav navbar-nav navbar-left">
-              <span><%= link_to 'NaganoCake', root_path,data: {"turbolinks"=>false}, class: 'btn btn-default btn-lg navbar-btn' %></span>
+              <span class="btn btn-default navbar-btn"></i><%= link_to "", root_path,data: {"turbolinks"=>false}%>紡ぎ<br>~tumgugi~</span>
+              <span class="btn btn-default navbar-btn"><%= link_to '絞り込み', root_path ,class:"glyphicon glyphicon-search"%></span>
             </nav>
             <nav class="nav navbar-nav navbar-right">
               <!--会員がログインしている場合の表示 -->
               <% if user_signed_in? %>
-                <span class="name">ようこそ、<%= current_customer.last_name + current_customer.first_name %>さん!</span>
-                <span><%= link_to 'MyPage', root_path, class: 'btn btn-default navbar-btn' %></span>
-                <span><%= link_to 'List', root_path, class: 'btn btn-default navbar-btn' %></span>
-                <span><%= link_to 'Cart', root_path, class: 'btn btn-default navbar-btn' %></span>
-                <span><%= link_to 'Logout', root_path, method: :delete, class: 'btn btn-default navbar-btn' %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to '自己紹介ページ', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-frown-o"></i><br><%= link_to 'お相手から', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to 'グループ', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '探してくる', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '探してくる', root_path %></span>
                 <!--管理者がログインしている場合の表示-->
               <% else %>
                 <span><%= link_to 'About', root_path, class: 'btn btn-default navbar-btn' %></span>
@@ -40,6 +43,7 @@
     <%= yield %>
     <footer>
     <p class="footer-text">© All Rights Reserved By Nikusyokukei.<i class="fas fa-hamburger"></i>
+    <span class="btn btn-default navbar-btn"><%= link_to 'Logout', root_path, method: :delete %></span>
   </footer>
   </body>
 </html>
