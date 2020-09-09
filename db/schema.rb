@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_180106) do
+ActiveRecord::Schema.define(version: 2020_09_07_104229) do
 
   create_table "assessments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 2020_09_05_180106) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "matchings", force: :cascade do |t|
     t.integer "matching_id"
     t.integer "publisher_id"
@@ -56,6 +63,13 @@ ActiveRecord::Schema.define(version: 2020_09_05_180106) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "publisher_images", force: :cascade do |t|
+    t.integer "publisher_id"
+    t.integer "publisher_image_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "publishers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "reset_password_token"
@@ -63,11 +77,9 @@ ActiveRecord::Schema.define(version: 2020_09_05_180106) do
     t.string "lastname", null: false
     t.string "address", null: false
     t.integer "postalcode", null: false
-    t.integer "image_id", null: false
     t.string "nicname", null: false
     t.boolean "status", default: false, null: false
     t.integer "number", null: false
-    t.integer "group_id", null: false
     t.string "profile", null: false
     t.integer "age", null: false
     t.integer "competence", null: false
@@ -93,7 +105,6 @@ ActiveRecord::Schema.define(version: 2020_09_05_180106) do
     t.string "lastname"
     t.string "address"
     t.integer "postalcode"
-    t.integer "image_id"
     t.string "nickname"
     t.boolean "is_withdrawal", default: false, null: false
     t.integer "number"

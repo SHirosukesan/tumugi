@@ -2,12 +2,23 @@
    <table class="table table-inverse">
           <thead>
             <tr>
-              <th><%=attachment_image_tag(user,:img ,:fill,150,150,fallback:"downroad.jpg",size:"100x100") %></th>
+              <th>
+                <%= form_for(@user) do |f| %>
+                  <p>画像<%= f.attachment_field :images_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
+                <%= f.submit %>
+                <% end %>
+                <div id="list"></div>
+                             <!--  ※iamgeの中の？ -->
+                 <!-- オブジェクト.each  do |変数|
+                繰り返す処理
+                end -->
+              </th>
             </tr>
+           <!--  ※iamge送るところ考える -->
           </thead>
           <tbody>
                 <tr>
-                  <td></td>
+                  <td><h4>Name :<%=@user.name%></h4></td>
                   <td></td>
                 </tr>
                 <tr>
@@ -22,4 +33,5 @@
                  </tr>
            <tbody>
      </table>
+     <span><%= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
 </div>

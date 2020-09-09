@@ -37,7 +37,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string "lastname"
       t.string "address"
       t.integer "postalcode"
-      t.integer "image_id"
       t.string "nickname"
       t.boolean "is_withdrawal", default: false, null: false
       t.integer "number"

@@ -7,11 +7,9 @@ class CreatePublishers < ActiveRecord::Migration[5.2]
 	    t.string "lastname", null: false
 	    t.string "address", null: false
 	    t.integer "postalcode", null: false
-	    t.integer "image_id", null: false
 	    t.string "nicname", null: false
 	    t.boolean "status", default: false, null: false
 	    t.integer "number", null: false
-	    t.integer "group_id", null: false
 	    t.string "profile", null: false
 	    t.integer "age", null: false
 	    t.integer "competence", null: false
