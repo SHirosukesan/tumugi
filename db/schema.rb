@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_104229) do
     t.integer "number"
     t.integer "group_id"
     t.string "profile"
+    t.string "prefecture"
     t.integer "age"
     t.integer "competence"
     t.string "name", null: false

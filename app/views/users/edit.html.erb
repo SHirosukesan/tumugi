@@ -30,6 +30,11 @@
     <% end %>
 </div>
 <div>
+    <%= link_to users_edit_prefecture_path do %>
+        <p class="btn btn-default navbar-btn">お住まいの都道府県 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.prefecture%></p>
+    <% end %>
+</div>
+<div>
     <%= link_to users_edit_nickname_path do %>
         <p class="btn btn-default navbar-btn">仕事・前職 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.nickname%></p>
     <% end %>
@@ -46,7 +51,7 @@
 </div>
 <div>
     <%= link_to users_edit_profile_path do %>
-        <p class="btn btn-default navbar-btn">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;</p>
+        <p class="btn btn-default navbar-btn">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
     <% end %>
     <div>
         <h3>自己紹介内容</h3>

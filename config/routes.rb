@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'users/edit_number'
   get 'users/edit_address'
   get 'users/edit_profile'
+  get 'users/edit_prefecture'
 
   resources :users, expect:[:new]
   resources :app_users, only: [:create]

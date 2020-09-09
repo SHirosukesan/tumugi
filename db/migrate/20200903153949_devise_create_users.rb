@@ -42,6 +42,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer "number"
       t.integer "group_id"
       t.string "profile"
+      t.string "prefecture"
       t.integer "age"
       t.integer "competence"
       t.string :name, null: false

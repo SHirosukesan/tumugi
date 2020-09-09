@@ -18,19 +18,14 @@
           </thead>
           <tbody>
                 <tr>
-                  <td><h4>Name :<%=@user.name%></h4></td>
-                  <td></td>
+                  <td><h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%></h4></td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
+                  <td>
+                    <h3>自己紹介内容</h3>
+                    <p><%=@user.profile%></p>
+                  </td>
                 </tr>
-                <tr>
-                  <td></td>
-                </tr>
-                 <tr>
-                  <td></td>
-                 </tr>
            <tbody>
      </table>
      <span><%= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
