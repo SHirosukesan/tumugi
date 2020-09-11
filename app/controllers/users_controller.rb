@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def home
+    @publishers = Publisher.all
   end
 
   def index

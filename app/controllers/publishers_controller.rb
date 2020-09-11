@@ -6,6 +6,7 @@ class PublishersController < ApplicationController
   def create
   end
   def show
+    @publisher=Publisher.find(publisher.id)
   end
   def edit
   end
