@@ -1,13 +1,13 @@
 <div>
-<span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to '自己紹介ページ', user_path(current_user.id) %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-frown-o"></i><br><%= link_to 'お相手から', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to 'グループ', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '探してくる', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '掲載者ページ', publisher_path %></span>
+  <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to '自己紹介ページ', user_path(current_user.id) %></span>
+  <span class="btn btn-default navbar-btn"><i class="im im-frown-o"></i><br><%= link_to 'お相手から', root_path %></span>
+  <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング', root_path %></span>
+  <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to 'グループ', root_path %></span>
+  <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '探してくる', root_path %></span>
+  <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '掲載者ページ', publisher_path %></span>
 </div>
 <div>
-   <table class="table table-inverse">
+      <table class="table table-inverse">
           <thead>
             <tr>
               <th>
@@ -16,25 +16,25 @@
                 <%= f.submit %>
                 <% end %>
                 <div id="list"></div>
-                             <!--  ※iamgeの中の？ -->
-                 <!-- オブジェクト.each  do |変数|
-                繰り返す処理
-                end -->
               </th>
             </tr>
-           <!--  ※iamge送るところ考える -->
           </thead>
-          <tbody>
-                <tr>
-                  <td><h4>職場 :<%=@publisher.nickname%>&emsp;<%=@publiser.age%>歳&emsp; 場所:<%=@publisher.prefecture%></h4></td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3>手伝ってほしい内容</h3>
-                    <p><%=@publisher.profile%></p>
-                  </td>
-                </tr>
-           <tbody>
+      <tbody>
+        <tr>
+            <td><h4>職場 :<%=@publisher.nickname%>&emsp;<%=@publiser.age%>歳&emsp; 場所:<%=@publisher.prefecture%></h4></td>
+        </tr>
+        <tr>
+            <td><%= render "shared/favolites2",{publisher:@publisehr} %></td>
+            <td>
+                <h3>手伝ってほしい内容</h3>
+                <p><%=@publisher.profile%></p>
+            </td>
+     <tbody>
      </table>
      <span><%= link_to 'プロフィール編集・確認', edit_publisher_path(@publisher.id), class: 'btn btn-default navbar-btn' %></span>
 </div>
+
+
+
+
+render /shared/favolites/@publisher()

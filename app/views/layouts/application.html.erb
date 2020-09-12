@@ -30,13 +30,17 @@
                 <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to 'グループ', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '探してくる', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '掲載者ページ', publishers_index_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '掲載者ページ', users_index_path %></span>
+                <!--管理者がログインしている場合の表示-->
+
+              <% elsif publisher_signed_in?%>
+                <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to 'マイページ', publisher_path(current_publisher.id)%></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-frown-o"></i><br><%= link_to 'ユーザーからの応募', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'やりとり中', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to 'ユーザー一覧', publishers_index_path %></span>
                 <!--管理者がログインしている場合の表示-->
               <% else %>
-                <span><%= link_to 'About', "", class: 'btn btn-default navbar-btn' %></span>
-                <span><%= link_to 'List', root_path, class: 'btn btn-default navbar-btn' %></span>
-                <span><%= link_to 'SignUp', root_path, class: 'btn btn-default navbar-btn' %></span>
-                <span><%= link_to 'Login', root_path, class: 'btn btn-default navbar-btn' %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to 'about' %></span>
               <% end %>
             </nav>
           </div>
@@ -46,7 +50,8 @@
     <%= yield %>
     <footer>
     <p class="footer-text">© All Rights Reserved By Nikusyokukei.<i class="fas fa-hamburger"></i>
-    <span class="btn btn-default navbar-btn"><%= link_to 'Logout', root_path, method: :delete %></span>
+    <span class="btn btn-default navbar-btn"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
+    <span class="btn btn-default navbar-btn"><%= link_to 'Logout_publisher', destroy_publisher_session_path, method: :delete %></span>
   </footer>
   </body>
 </html>

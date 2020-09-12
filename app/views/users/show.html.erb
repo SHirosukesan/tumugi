@@ -8,29 +8,27 @@
                 <%= f.submit %>
                 <% end %>
                 <div id="list"></div>
-                <td>
-                  <td id="favorites<%= @user.id %>">
-                  <%= render 'shared/favolites', user:@user%>
-                </td>
-                             <!--  ※iamgeの中の？ -->
-                 <!-- オブジェクト.each  do |変数|
-                繰り返す処理
-                end -->
               </th>
             </tr>
-           <!--  ※iamge送るところ考える -->
           </thead>
-          <tbody>
-                <tr>
-                  <td><h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%></h4></td>
-                </tr>
-                <tr>
-                  <td>
-                    <h3>自己紹介内容</h3>
-                    <p><%=@user.profile%></p>
-                  </td>
-                </tr>
-           <tbody>
+      <tbody>
+          <tr>
+            <td>
+              <h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%><%= render 'shared/favolites', user:@user%></h4>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3>自己紹介内容</h3>
+              <p><%=@user.profile%></p>
+            </td>
+          </tr>
+     <tbody>
      </table>
      <span><%= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
 </div>
+ <!--  ※iamgeの中の？ -->
+                 <!-- オブジェクト.each  do |変数|
+                繰り返す処理
+                end -->
+ <!--  ※iamge送るところ考える -->

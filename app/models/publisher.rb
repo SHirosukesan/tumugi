@@ -1,5 +1,11 @@
 class Publisher < ApplicationRecord
-	has_many :publisher_iamges, dependent: :destroy
-	accepts_attachments_for :publisher_images, attachment: :publisher_image
-	# accepts_nested_attributes_for :publisher_images
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  has_many :favorites, dependent: :destroy
+
+ def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+ end
 end
