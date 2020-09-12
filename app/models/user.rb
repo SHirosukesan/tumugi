@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :works, dependent: :destroy
   has_many :hobies, dependent: :destroy
   has_many :images, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   accepts_attachments_for :images,attachment: :image
   # 画像を複数枚受け付ける
 end
