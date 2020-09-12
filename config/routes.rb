@@ -11,10 +11,7 @@ Rails.application.routes.draw do
   get 'users/edit_address'
   get 'users/edit_profile'
   get 'users/edit_prefecture'
-
-  resources :users, expect:[:new]
-  resources :app_users, only: [:create]
-  resources :publishers, expect:[:new]
+# userのroutes
   get 'publishers/home'
   get 'assessments/index'
   get 'matchings/index'
@@ -27,5 +24,9 @@ Rails.application.routes.draw do
   get 'works/index'
   get 'work/index'
   get 'user/index'
+  resources :users, expect:[:new]
+  resources :app_users, only: [:create]
+  resources :publishers, expect:[:new]
+  resource :favorites, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

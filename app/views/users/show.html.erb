@@ -8,6 +8,10 @@
                 <%= f.submit %>
                 <% end %>
                 <div id="list"></div>
+                <td>
+                  <td id="favorites<%= @user.id %>">
+                  <%= render 'shared/favolites', user:@user%>
+                </td>
                              <!--  ※iamgeの中の？ -->
                  <!-- オブジェクト.each  do |変数|
                 繰り返す処理
