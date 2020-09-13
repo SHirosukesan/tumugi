@@ -24,15 +24,16 @@
             </nav>
             <nav class="nav navbar-nav navbar-right">
               <!--会員がログインしている場合の表示 -->
+              <%= user_signed_in? %>
+              <%= publisher_signed_in?%>
               <% if user_signed_in? %>
                 <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to '自己紹介ページ', user_path(current_user.id) %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-frown-o"></i><br><%= link_to 'お相手から', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to 'グループ', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '探してくる', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '掲載者ページ', users_index_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '掲載者ページ', users_path %></span>
                 <!--管理者がログインしている場合の表示-->
-
               <% elsif publisher_signed_in?%>
                 <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to 'マイページ', publisher_path(current_publisher.id)%></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-frown-o"></i><br><%= link_to 'ユーザーからの応募', root_path %></span>

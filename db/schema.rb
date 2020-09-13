@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_12_165845) do
+ActiveRecord::Schema.define(version: 2020_09_13_073452) do
 
   create_table "assessments", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -140,6 +140,15 @@ ActiveRecord::Schema.define(version: 2020_09_12_165845) do
     t.boolean "admin_flg"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "users_publishers", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.boolean "follower_permission", default: false, null: false
+    t.boolean "followed_permission", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "works", force: :cascade do |t|

@@ -14,8 +14,15 @@
       <tbody>
           <tr>
             <td>
-              <h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%><%= render 'shared/favolites', user:@user%></h4>
+              <h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%><%#= render 'shared/favolites', user:@user%></h4>
             </td>
+                <td>
+                  <% if UsersPublisher.already_sent_matched?(@user.id, current_publisher.id) %>
+                    <%= link_to 'unfollow', publisher_unmatch_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+                  <% else %>
+                    <%= link_to 'フォローする', publisher_match_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+                  <% end %>
+            　　</td>
           </tr>
           <tr>
             <td>
@@ -27,6 +34,7 @@
      </table>
      <span><%= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
 </div>
+
  <!--  ※iamgeの中の？ -->
                  <!-- オブジェクト.each  do |変数|
                 繰り返す処理

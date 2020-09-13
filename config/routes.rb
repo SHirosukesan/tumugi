@@ -34,7 +34,12 @@ Rails.application.routes.draw do
   get 'hobies/index'
   get 'works/index'
   get 'work/index'
-  get 'user/index'
+  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
+  delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
+  get 'match' => 'users_publishers#match', as: 'match' # フォローする
+  get 'unmatch' => 'users_publishers#unmatch', as: 'unmatch' # フォロー外す
+  get 'publisher_match' => 'users_publishers#publisher_match', as: 'publisher_match' # フォローする
+  get 'publisher_unmatch' => 'users_publishers#publisher_unmatch', as: 'publisher_unmatch' # フォロー外す
   resources :users, expect:[:new]
   resources :app_users, only: [:create]
   resources :publishers, expect:[:new,:index]

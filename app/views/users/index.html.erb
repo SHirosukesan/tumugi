@@ -1,1 +1,21 @@
-<h1>探す写真</h1>
+<% @publishers.each do |publishers| %>
+<table>
+	<tr>
+		<th>
+
+	      <!-- publishers.publisher_images.publisher_image_id -->
+	      <%=publishers.company_name %>
+	      <!-- publishers.comptence -->
+	    </th>
+	</tr>
+	<tr>
+    	<td>
+    	  <%=publishers.number%>
+	      <%=publishers.profile%>
+    	</td>
+    </tr>
+</table>
+
+<% end %>
+
+<!-- コメリンク貼りたい -->

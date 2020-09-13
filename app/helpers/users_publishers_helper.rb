@@ -1,0 +1,2 @@
+module UsersPublishersHelper
+end
