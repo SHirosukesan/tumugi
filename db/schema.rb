@@ -64,11 +64,20 @@ ActiveRecord::Schema.define(version: 2020_09_13_073452) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.integer "notification_id"
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "matching_id"
+    t.integer "chat_id"
     t.integer "publisher_id"
     t.integer "user_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_notifications_on_chat_id"
+    t.index ["matching_id"], name: "index_notifications_on_matching_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "publisher_images", force: :cascade do |t|

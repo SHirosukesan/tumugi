@@ -17,12 +17,23 @@
               <h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%><%#= render 'shared/favolites', user:@user%></h4>
             </td>
                 <td>
-                  <% if UsersPublisher.already_sent_matched?(@user.id, current_publisher.id) %>
-                    <%= link_to 'unfollow', publisher_unmatch_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
-                  <% else %>
-                    <%= link_to 'フォローする', publisher_match_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+                  <% if publisher_signed_in?%>
+                    <% if UsersPublisher.already_sent_matched?(@user.id, current_publisher.id) %>
+                      <%= link_to 'unfollow', publisher_unmatch_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+                    <% else %>
+                      <%= link_to 'フォローする', publisher_match_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+                    <% end %>
                   <% end %>
             　　</td>
+          </tr>
+          <tr>
+            <td>chat room
+            </td>
+            <td>
+              <% if @ff = true %>
+                <%= link_to 'chat room', chat_room_path(chat_room_id: @chat_room.id)>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <td>
