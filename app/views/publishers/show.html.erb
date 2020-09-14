@@ -19,12 +19,6 @@
                   <%= link_to 'いいね', match_path(user_id: current_user.id, publisher_id: @publisher.id, follower_permission: true) %>
                 <% end %>
               <% end %>
-
-              <%# if current_user.following?(@user) %>
-                <%#= link_to 'フォロー外す', unfollow_path(@user.id), method: :delete %>
-              <%#else %>
-                <%#= link_to 'フォローする', follow_path(@user.id), method: :POST %>
-              <%# end %>
             </td>
      <tbody>
      </table>

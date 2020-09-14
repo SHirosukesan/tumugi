@@ -5,6 +5,15 @@ class PublishersController < ApplicationController
   def home
   end
   def create
+    @user = User.find(params[:users_publishser][:following_id])
+    current_user.follow!(@user)
+    # ここから
+    @user.create_notification_follow!(current_user)
+    # ここまで
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+    end
   end
   def show
     @publisher=Publisher.find(params[:id])
