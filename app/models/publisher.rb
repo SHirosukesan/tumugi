@@ -4,9 +4,10 @@ class Publisher < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :favorites, dependent: :destroy
+  has_many :publisher_images, dependent: :destroy
   has_many :matcher, class_name: "UsersPublisher", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :matched, class_name: "UsersPublisher", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
-
+  accepts_attachments_for :publisher_images,attachment: :publisher_image
  def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
  end

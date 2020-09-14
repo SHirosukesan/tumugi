@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # ーーーーーーーーーーーーーーーdeviceたちーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   devise_for :publishers,:controllers => {
       :registrations => 'publishers/registrations',
       :sessions => 'publishers/sessions',
@@ -22,7 +23,15 @@ Rails.application.routes.draw do
   get 'users/edit_address'
   get 'users/edit_profile'
   get 'users/edit_prefecture'
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーuserのformの
 # userのroutes
+  get 'publishers/edit_email'
+  get 'publishers/edit_address'
+  get 'publishers/edit_company_name'
+  get 'publishers/edit_postalcode'
+  get 'publishers/edit_number'
+  get 'publishers/edit_profile'
+# ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーpublisherのformの
   get 'publishers/top'
   get 'assessments/index'
   get 'matchings/index'
@@ -34,15 +43,18 @@ Rails.application.routes.draw do
   get 'hobies/index'
   get 'works/index'
   get 'work/index'
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーuserのフォロー機能
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
   delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   get 'match' => 'users_publishers#match', as: 'match' # フォローする
   get 'unmatch' => 'users_publishers#unmatch', as: 'unmatch' # フォロー外す
+# ---------------マッチング機能------------------------------------------------------------------
   get 'publisher_match' => 'users_publishers#publisher_match', as: 'publisher_match' # フォローする
   get 'publisher_unmatch' => 'users_publishers#publisher_unmatch', as: 'publisher_unmatch' # フォロー外す
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
   resources :users, expect:[:new]
-  resources :app_users, only: [:create]
   resources :publishers, expect:[:new,:index]
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーいいね機能ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   resource :favorites, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

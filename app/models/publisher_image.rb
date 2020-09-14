@@ -1,4 +1,4 @@
 class PublisherImage < ApplicationRecord
-	attachment :publisher_iamge
+	attachment :publisher_image
 	belongs_to :publisher
 end
