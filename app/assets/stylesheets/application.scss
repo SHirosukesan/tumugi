@@ -22,6 +22,27 @@
   padding: 0;
   box-sizing: border-box;
 }
+//---------------tumugi------------------------------------------
+main {
+  background-color: floralwhite;
+  height: auto;
+  width: 100%;
+}
+
+.tugumi {
+    font-family:  serif;    /* フォントの種類指定 */
+    border:solid 1px black;
+    font-size:  35px;       /* 文字サイズ指定 */
+    margin-top: -10px;
+    color: yellow;        /* 空白指定 */
+    text-decoration :none;
+    font-weight: bold;
+    background-color:darkgoldenrod;
+    border-radius: 50px;
+    padding:5px;
+    text-shadow:2px 2px 0px black,
+               6px 4px 0px rgba(0,0,0,0.5);;
+}
 
 // ジャンル検索テーブル
 
@@ -30,18 +51,57 @@
 }
 
 
-// フッター --------------------------------------------
+// フッター tugumi--------------------------------------------
 footer {
   width: 100%;
   height: 70px;
   text-align: center;
   line-height: 70px;
-  background-color: #CC9966;
+  background-color: saddlebrown;
   margin: auto 0;
 }
 
 // ----------------------------------------------------
+h3 {
+  position: relative;
+  padding: 0.25em 1em;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  text-align: center;
+  background-color: limegreen;
+}
+h3:before, h3:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: -webkit-calc(100% + 14px);
+  height: calc(100% + 14px);
+  background-color: black;
+}
+h3:before {
+  left: 7px;
+}
+h3:after {
+  right: 7px;
+}
 
+
+//----tugumi-----------------------------------------------------------
+p{
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+//tumugi-------------------------------------------------------------
 .concon {
   background-color: #999999;
 }
@@ -453,97 +513,6 @@ footer {
   height: 450px
 }
 
-// 花
-
-.back {
-  background-color: #fff;
-}
-#background {
-  position: relative;
-  background-color: #fff;
-  height: 476px;
-  border-bottom: 10px solid #99CCCC;
-  margin: 0 auto; }
-#flower {
-  position: absolute;
-  top: 20px;
-  left: 172px;
-  width: 256px; }
-
-.petal {
-  background-color: #FFCCCC;
-  float: left;
-  margin: 1px 1px 0 0;
-  width: 125px;
-  height: 125px;
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px; }
-#topleft {
-  -moz-border-radius-bottomright: 0;
-  -webkit-border-bottom-right-radius: 0;
-  border-bottom: 2px solid #FFCCCC;
-  border-right: 2px solid #FFCCCC; }
-#topright {
-  -moz-border-radius-bottomleft: 0;
-  -webkit-border-bottom-left-radius: 0;
-  border-bottom: 2px solid #FFCCCC;
-  border-left: 2px solid #FFCCCC;  }
-#bottomleft {
-  -moz-border-radius-topright: 0;
-  -webkit-border-top-right-radius: 0;
-  border-top: 2px solid #FFCCCC;
-  border-right: 2px solid #FFCCCC; }
-#bottomright {
-  -moz-border-radius-topleft: 0;
-  -webkit-border-top-left-radius: 0;
-  border-top: 2px solid #FFCCCC;
-  border-left: 2px solid #FFCCCC; }
-#center {
-  position: absolute;
-  left: 112px;
-  top: 112px;
-  background-color: #FFA500;
-  width: 30px;
-  height: 30px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px; }
-#stem {
-  float: left;
-  width: 12px;
-  height: 200px;
-  margin: 0 1px;
-  background-color: #99CCCC; }
-
-.leaf {
-  float: left; 
-  margin-top: 80px; 
-  background-color: #99CCCC;
-  width: 60px;
-  height: 30px; }
-
-#leftleaf {
-  clear: left;
-  margin-left: 10px;
-  -moz-border-radius-bottomleft: 30px;
-  -webkit-border-bottom-left-radius: 30px;
-  -moz-border-radius-topright: 30px;
-  -webkit-border-top-right-radius: 30px; }
-#rightleaf {
-  -moz-border-radius-bottomright: 30px;
-  -webkit-border-bottom-right-radius: 30px;
-  -moz-border-radius-topleft: 30px;
-  -webkit-border-top-left-radius: 30px; }
-
-.thanks {
-  margin: 100px 0;
-}
-
-
-.enjoy {
-  font-family: Times New Roman;
-  font-size: 45px;
-  color: #996633;
-}
 
 // topスクロール
 .scroll {

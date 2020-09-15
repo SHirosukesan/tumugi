@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   get 'publishers/top'
   get 'assessments/index'
   get 'matchings/index'
-  get 'notifications/index'
+  # get 'notifications/index'
   get 'chats/index'
   get 'publishers/index'
   get 'skills/index'
@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   get 'publisher_match' => 'users_publishers#publisher_match', as: 'publisher_match' # フォローする
   get 'publisher_unmatch' => 'users_publishers#publisher_unmatch', as: 'publisher_unmatch' # フォロー外す
   # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
+  resources :notifications, only: :index
   resources :users, expect:[:new]
   resources :publishers, expect:[:new,:index]
   # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーいいね機能ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー

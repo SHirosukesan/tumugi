@@ -1,38 +1,57 @@
-<div>
-   <table class="table table-inverse">
-          <thead>
-            <tr>
-              <th>
-                <%= form_for(@user) do |f| %>
-                  <p>画像<%= f.attachment_field :images_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
-                <%= f.submit %>
-                <% end %>
-                <div id="list"></div>
-              </th>
-            </tr>
-          </thead>
-      <tbody>
-          <tr>
-            <td>
-              <h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%><%#= render 'shared/favolites', user:@user%></h4>
-            </td>
-                <td>
-                  <% if publisher_signed_in?%>
-                    <% if UsersPublisher.already_sent_matched?(@user.id, current_publisher.id) %>
-                      <%= link_to 'unfollow', publisher_unmatch_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
-                    <% else %>
-                      <%= link_to 'フォローする', publisher_match_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+<div class="row">
+   <div class="col-md-4 col-md-offset-4">
+      <%= link_to users_path do %>
+            <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
+      <% end %>
+
+       <table class="table table-inverse">
+<!----------------------------画像を送っているおくらえさきはデータの更新なのでアップデート、その後表示される----------------------------------------
+ -->                    <%= form_for(@user) do |f| %>
+                      <p>画像<%= f.attachment_field :images_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
+                    <%= f.submit %>
                     <% end %>
-                  <% end %>
-            　　</td>
-          </tr>
+              <thead>
+                <tr>
+                  <th>
+                    <td><%= attachment_image_tag image, :image, fallback: "no-image.jpg", size:'50x50' %></td>
+                    <div id="list"></div>
+<!-------------------プレビュー機能のid----------------------------------------------------------------
+ -->                    <% @user.images.each do |image| %>
+                    <td><%= attachment_image_tag image, :image, fallback: "no-image.jpg", size:'50x50' %></td>
+<!--------------------------------------画像埋め込んで表示している---------------------------------------------
+ -->                    <%end%>
+<!---------------------------------プレビュー機能のid---------->
+                 </th>
+                </tr>
+              </thead>
+          <tbody>
+              <tr>
+                <td>
+                  <h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%><%#= render 'shared/favolites', user:@user%></h4>
+                </td>
+                    <td>
+                      <% if publisher_signed_in?%>
+                        <% if UsersPublisher.already_sent_matched?(@user.id, current_publisher.id) %>
+                          <%= link_to 'unfollow', publisher_unmatch_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+                        <% else %>
+                          <%= link_to 'フォローする', publisher_match_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+                        <% end %>
+                      <% end %>
+
+                         <tbody>
+                  　</td>
+         </table>
+         <span><%= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+    </div>
+</div>
+<!--</tr>
           <tr>
             <td>chat room
             </td>
             <td>
-              <% if @ff = true %>
-                <%= link_to 'chat room', chat_room_path(chat_room_id: @chat_room.id)>
-              <% end %>
+              <% #if @ff = true %>
+                <%#= link_to 'chat_room', chat_room_path(chat_room_id: @chat_room.id)>
+              <#% end %>
             </td>
           </tr>
           <tr>
@@ -41,12 +60,8 @@
               <p><%=@user.profile%></p>
             </td>
           </tr>
-     <tbody>
-     </table>
-     <span><%= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
-</div>
 
- <!--  ※iamgeの中の？ -->
+ <! ※iamgeの中の？ -->
                  <!-- オブジェクト.each  do |変数|
                 繰り返す処理
                 end -->

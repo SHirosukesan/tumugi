@@ -1,38 +1,42 @@
-<%= link_to edit_user_path(@user.id) do %>
-<p>&emsp;<b>＜＜＜</b>&emsp;</p>
-<% end %>
-<hr>
-<div>
- プロフィール：<%= form_with model: @user,url: user_path(@user.id) do |form| %>
-  姓：<%= form.text_field :firstname %>
-  名：<%= form.text_field :lastname %>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <%= form.submit %>
-<% end %>
+<div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <%= link_to edit_user_path(@user.id) do %>
+          <p>&emsp;<b>＜＜＜</b>&emsp;</p>
+          <% end %>
+          <hr>
+          <div>
+           プロフィール：<%= form_with model: @user,url: user_path(@user.id) do |form| %>
+            姓：<%= form.text_field :firstname %>
+            名：<%= form.text_field :lastname %>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <%= form.submit %>
+          <% end %>
+          </div>
+      </div>
 </div>

@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+20.times do |n|
+    User.create!(
+      email: "test#{n + 1}@test.com",
+      nickname: "テスト太郎#{n + 1}",
+      # image: File.open('./app/assets/images/mukashibanashi_ojiisan_obaasan.jpg'),
+      password: "123456"
+    )
+  end
+
+20.times do |n|
+    Publisher.create!(
+      email: "test#{n + 1}@test.com",
+      nicname: "テスト会社#{n + 1}",
+      # image: File.open('./app/assets/images/matiyakuba.jpg'),
+      password: "123456"
+    )
+  end
+
+# imageタグのとうし方を考える。

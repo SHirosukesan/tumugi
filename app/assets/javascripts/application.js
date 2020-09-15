@@ -16,6 +16,7 @@
 //= require_tree .
 
 //document.getElementById('user_images_images').onchange = function(event){
+// -----------------------------------プレビュー機能----------------------------------
 function onclick_preiew_image()
 {
   initializeFiles();
@@ -28,9 +29,10 @@ function onclick_preiew_image()
 
     reader.onload = (function(theFile) {
       return function (e) {
-        var div = document.createElement('div');
-        div.innerHTML += '<img class="reader_image" src="' + e.target.result + '" />';
-        document.getElementById('list').insertBefore(div, null);
+        // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーdiv作成してるした
+        var span = document.createElement('span');
+        span.innerHTML += '<img class="reader_image" src="' + e.target.result + '" />';
+        document.getElementById('list').insertBefore(span, null);
       }
     })(f);
   }
@@ -39,9 +41,8 @@ function onclick_preiew_image()
 function initializeFiles() {
   document.getElementById('list').innerHTML = '';
 }
-
-$(function(message) {
-        let message_content = (<%= @post.content %>)
-        var html = `<div class="action">${message_content}</div>`
-        $("#jquery").append(html)
-    })
+// $(function(message) {
+//   let message_content = (<%= @post.content %>)
+//   var html = `<div class="action">${message_content}</div>`
+//   $("#jquery").append(html)
+// });

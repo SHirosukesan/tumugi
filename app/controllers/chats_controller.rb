@@ -2,15 +2,14 @@ class ChatsController < ApplicationController
   def index
   end
   def create
-  	@chat = Chat.new(chat_params)
-    @publisher = @chat.publisher
-    if @chat.save
-      # ここから
-      @publisher.create_notification_chat!(current_user, @chat.id)
-      # ここまで
-      respond_to :js
-      #リクエスト毎に処理を分けている？
-    else
-      render 'posts/show'
-    end
+	    @matching = Mating.find(params[:matching_id])
+	    #投稿に紐づいたコメントを作成
+	    @chat = @matching.chats.build(comment_params)
+	    @chat.user_id = current_user.id
+	    @chat_matcing = @chat.matching
+     if @chat.save
+        #通知の作成
+        @chat_matching.create_notification_comment!(current_user, @comment.id)
+        render :index
+     end
 end

@@ -1,43 +1,40 @@
-<h1>通知履歴</h1>
 
-@notifications = @notifications.where.not(visitor_id: current_user.id)
-  <% if notifications.exists? %>
-    <%= render notifications%>
-    <%= paginate notifications%>
-  <% else %>
-  <p>
-    | 通知はありません
-    - visitor = notification.visitor
-- visited = notification.visited
-.col-md-6.mx-auto
-  .form-inline
-    span
-      = link_to user_path(visitor) do
-        = image_tag avatar_url(visitor).to_s, class: "icon_mini"
-        strong
-          = visitor.name
-      = 'さんが'
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h1>通知履歴</h1>
+    <h3 class="text-center">通知</h3>
+        <%= link_to destroy_all_users_notifications_path, method: :delete do %>
+            <i class="fas fa-trash" style="color: black;"></i>
+            <h7 style="color: black;">全削除</h7>
+        <% end %>
+        <hr>
+    <% if @notifications.exists? %>
+        <div class="users-index">
+            <%= render @notifications %>
+        </div>
+    <% else %>
+        <p>通知はありません</p>
+    <% end %>
 
-      - case notification.action
-      - when 'follow' then
-        = "あなたをフォローしました"
-      - when 'like' then
-        = link_to 'あなたの投稿', notification.post, style: "font-weight: bold;"
-        = "にいいねしました"
-      when 'comment' then
-        - if notification.post.user_id == visited.id
-          = link_to "あなたの投稿", notification.post, style: "font-weight: bold;"
-        <% else %>
-          <span>
-            <%link_to post_path(notification.post) do
-              = image_tag avatar_url(notification.post.user).to_s, class: "icon_mini" 
-              strong
-                = notification.post.user.name + 'さんの投稿'
-        = "にコメントしました"
-          </span>
-        p.text-muted.mb-0
-          = Comment.find_by(id: notification.comment_id)&.comment
 
-  .small.text-muted.text-right
-    = time_ago_in_words(notification.created_at).upcase
-  <hr>
+
+    <!-- ---------------------------chat画像----------------------------------- -->
+    <% visitor = notification.visitor %>
+    <% maching = notification. %>
+    
+    <div class="user-view clearfix ">
+      <%= link_to users_path(notification.visitor) do %>
+        <%= attachment_image_tag visitor, :profile_image, :fill,100,100, format: "jpeg", fallback: "no_image.jpg", size: "50x50", class:"profile-img-circle" %>
+      <% end %>
+      <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span>
+      <br>
+      <% if !@chat.nil? %>
+        <p class="moderate-font text-center" style="color: #C0C0C0;"><%= @chat %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+    <!-- notification.visitor ここもあまり理解していない -->
+    <!-- attachment_image_tagもprofile_imageなどのないから無理そう -->

@@ -1,86 +1,90 @@
-<%= link_to publisher_path do %>
-<p>&emsp;<b>＜＜＜</b>&emsp;</p>
-<% end %>
-<hr>
-<h3><b>プロフィール項目</b></h3>
-<p>&#149;プロフィールは履歴書がわりにもなるので仕事と繋がる方はできるだけきっちり書きましょう！！</p>
-<hr>
-<h5><b>&diams;マイページ項目</b></h5>
-<!-- ---------------------------------------------------------------------------------------------
- --><div>
-    <h5><b>&diams;施設・企業</b></h5>
-    <div>
-    <%= link_to publishers_edit_company_name_path do %>
-        <p class="btn btn-default navbar-btn">企業名前 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.company_name%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to publishers_edit_number_path do %>
-        <p class="btn btn-default navbar-btn">都道府県,住所 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.address%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to publishers_edit_number_path do %>
-        <p class="btn btn-default navbar-btn">電話番号 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.number%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to publishers_edit_address_path do %>
-        <p class="btn btn-default navbar-btn">メールアドレス &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.email%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to publishers_edit_postalcode_path do %>
-        <p class="btn btn-default navbar-btn">郵便番号 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.postalcode%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to users_edit_profile_path do %>
-        <p class="btn btn-default navbar-btn">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
-    <% end %>
-    <div>
-        <h3>自己紹介内容</h3>
-        <p><%=@publisher.profile%></p>
-    </div>
-</div>
-<hr>
-<!--
---------------------------------------------------------------------------------------------- -->
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+            <%= link_to publisher_path do %>
+            <p>&emsp;<b>＜＜＜</b>&emsp;</p>
+            <% end %>
+            <hr>
+            <h3><b>プロフィール項目</b></h3>
+            <p>&#149;プロフィールは履歴書がわりにもなるので仕事と繋がる方はできるだけきっちり書きましょう！！</p>
+            <hr>
+            <h5><b>&diams;マイページ項目</b></h5>
+            <!-- ---------------------------------------------------------------------------------------------
+             --><div>
+                <h3><b>&diams;施設・企業</b></h3>
+                <div>
+                <%= link_to publishers_edit_company_name_path do %>
+                    <p class="btn btn-default navbar-btn">企業名前 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.company_name%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to publishers_edit_number_path do %>
+                    <p class="btn btn-default navbar-btn">都道府県,住所 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.address%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to publishers_edit_number_path do %>
+                    <p class="btn btn-default navbar-btn">電話番号 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.number%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to publishers_edit_address_path do %>
+                    <p class="btn btn-default navbar-btn">メールアドレス &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.email%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to publishers_edit_postalcode_path do %>
+                    <p class="btn btn-default navbar-btn">郵便番号 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.postalcode%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to users_edit_profile_path do %>
+                    <p class="btn btn-default navbar-btn">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
+                <% end %>
+                <div>
+                    <h3>自己紹介内容</h3>
+                    <p><%=@publisher.profile%></p>
+                </div>
+            </div>
+            <hr>
+            <!--
+            --------------------------------------------------------------------------------------------- -->
 
-    <h5><b>&diams;掲載者</b></h5>
-<div>
-    <%= link_to users_edit_nickname_path do %>
-        <p class="btn btn-default navbar-btn">ニックネーム &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.nicname%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to users_edit_prefecture_path do %>
-        <p class="btn btn-default navbar-btn">お住まいの都道府県 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.postalcode%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to users_edit_nickname_path do %>
-        <p class="btn btn-default navbar-btn">仕事・前職 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.nicname%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to users_edit_age_path do %>
-        <p class="btn btn-default navbar-btn">年齢 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.age%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to users_edit_nickname_path do %>
-        <p class="btn btn-default navbar-btn">趣味・特技 以前の趣味 特技 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.nicname%></p>
-    <% end %>
-</div>
-<div>
-    <%= link_to users_edit_profile_path do %>
-        <p class="btn btn-default navbar-btn">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
-    <% end %>
-    <div>
-        <h3>自己紹介内容</h3>
-        <p><%=@publisher.profile%></p>
+                <h3><b>&diams;掲載者</b></h3>
+            <div>
+                <%= link_to users_edit_nickname_path do %>
+                    <p class="btn btn-default navbar-btn">ニックネーム &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.nicname%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to users_edit_prefecture_path do %>
+                    <p class="btn btn-default navbar-btn">お住まいの都道府県 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.postalcode%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to users_edit_nickname_path do %>
+                    <p class="btn btn-default navbar-btn">仕事・前職 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.nicname%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to users_edit_age_path do %>
+                    <p class="btn btn-default navbar-btn">年齢 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.age%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to users_edit_nickname_path do %>
+                    <p class="btn btn-default navbar-btn">趣味・特技 以前の趣味 特技 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@publisher.nicname%></p>
+                <% end %>
+            </div>
+            <div>
+                <%= link_to users_edit_profile_path do %>
+                    <p class="btn btn-default navbar-btn">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
+                <% end %>
+                <div>
+                <h3>自己紹介内容</h3>
+                <p><%=@publisher.profile%></p>
+                </div>
+            </div>
+            <!--
+            つけたくなったらuserのコードと@userに変えやる -->
     </div>
 </div>
-<!-- 
-つけたくなったらuserのコードと@userに変えやる -->

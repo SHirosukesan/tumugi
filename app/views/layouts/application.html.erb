@@ -13,26 +13,22 @@
 
    <body>
     <header>
-      <nav class="navbar navbar-default" style="background-color:#FFF;">
-        <div class="container-fiuld">
-          <div class="collapse navbar-collapse">
-            <nav class="nav navbar-nav navbar-left">
-              <div class="btn btn-default navbar-btn">
-                <%= link_to '紡ぎ~tumugi~', root_path %></span>
-              </div>
-              <span class="btn btn-default navbar-btn"><%= link_to '絞り込み', root_path ,class:"glyphicon glyphicon-search"%></span>
-            </nav>
-            <nav class="nav navbar-nav navbar-right">
+      <nav class="navbar navbar-default  " style="background-color:#8b4513;">
+                <span class="tugumi "><%= link_to '<<<', root_path %>  紡ぎ~Tumugi~</span>
+                <span class="btn btn-default navbar-btn">
+                <%= link_to '絞り込み', root_path ,class:"glyphicon glyphicon-search"%>
+                </span >
+            <div class="navbar-right">
               <!--会員がログインしている場合の表示 -->
               <%= user_signed_in? %>
               <%= publisher_signed_in?%>
               <% if user_signed_in? %>
                 <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to '自己紹介ページ', user_path(current_user.id) %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-frown-o"></i><br><%= link_to 'お相手から', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-smiley-o"></i><br><%= link_to 'お相手から(依頼)', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング（メール）', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to 'グループ', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '探してくる', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to '掲載者ページ', users_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to 'スカウト', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-support"></i></i><br><%= link_to 'ボランティア（依頼一覧）', users_path %></span>
                 <!--管理者がログインしている場合の表示-->
               <% elsif publisher_signed_in?%>
                 <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to 'マイページ', publisher_path(current_publisher.id)%></span>
@@ -43,16 +39,25 @@
               <% else %>
                 <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to 'about' %></span>
               <% end %>
-            </nav>
-          </div>
-        </div>
+            </div>
       </nav>
     </header>
+    <main>
     <%= yield %>
+  </main>
     <footer>
-    <p class="footer-text">© All Rights Reserved By Nikusyokukei.<i class="fas fa-hamburger"></i>
+<!--       --------------------------------通知機能の片割れ------------------------------------------
+ --><!--   <#% if unchecked_notifications.any? %>
+      <i class="fa fa-circle" style="color: gold;"></i>
+      <#% end %>
+      <li>
+          <%#= link_to "NOTICE", users_notifications_path, class: "btn-default" %>
+      </li> -->
+      <!-- --------------------------------------footerの中身--------------------------------------------- -->
+    <p class="footer-text">© All Rights Reserved By TETUDATTEYOBBA.<i class="fas fa-hamburger"></i>
     <span class="btn btn-default navbar-btn"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
     <span class="btn btn-default navbar-btn"><%= link_to 'Logout_publisher', destroy_publisher_session_path, method: :delete %></span>
+    <span class="btn btn-default navbar-btn">Goo<i class="im im-car"></i>bye!! &#9996;<br><%= link_to 'サイトを退会しデータを消す', publishers_index_path %></span>
   </footer>
   </body>
 </html>
