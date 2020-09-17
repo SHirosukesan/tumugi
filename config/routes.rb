@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'users/edit_address'
   get 'users/edit_profile'
   get 'users/edit_prefecture'
+  get 'users/follow_index'
   # ーーーーーーーーーーーーーーーーーーーーーーーーーuserのformの
 # userのroutes
   get 'publishers/edit_email'
@@ -53,8 +54,14 @@ Rails.application.routes.draw do
   get 'publisher_unmatch' => 'users_publishers#publisher_unmatch', as: 'publisher_unmatch' # フォロー外す
   # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
   resources :notifications, only: :index
-  resources :users, expect:[:new]
-  resources :publishers, expect:[:new,:index]
+  resources :users, expect:[:new] do
+      resource :users_publishers,only:[:update]
+  end
+  resources :publishers, expect:[:new,:index] do
+      resource :users_publishers,only:[:create,:destroy]
+
+  end
+  resources :chat_rooms, only: :show
   # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーいいね機能ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   resource :favorites, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

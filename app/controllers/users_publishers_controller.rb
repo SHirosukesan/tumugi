@@ -1,15 +1,46 @@
 class UsersPublishersController < ApplicationController
-  def match
-    if params[:follower_permission]
-      current_user.match(params[:user_id],params[:publisher_id],params[:follower_permission])
-      redirect_to publisher_path(params[:publisher_id])
+    def create
+      publisher = Publisher.find(params[:publisher_id])
+      user_publisher = current_user.users_publishers.new(publisher_id:publisher.id)
+      user_publisher.save
+      redirect_to publisher_path(publisher)
     end
-  end
 
-   def unmatch
-      current_user.unmatch(params[:user_id], params[:publisher_id])
-     redirect_to publisher_path(params[:publisher_id])
-   end
+    def destroy
+    end
+
+    def update
+      user = User.find(params[:user_id])
+      user_publisher = current_publisher.users_publishers.find_by(user_id:user.id)
+      if user_publisher.follow_permission == false
+        user_publisher.update(follow_permission:true)
+      else
+        user_publisher.update(follow_permission:false)
+      end
+      redirect_to user_path(user)
+    end
+
+end
+
+
+#   def match
+#     if params[:follower_permission]
+#       current_user.match(params[:user_id],params[:publisher_id],params[:follower_permission])
+#       # if UsersPublisher.exits?(follower_id: params[:publisher_id])
+#       #   chatroom = ChatRooms.new
+#       #   chatroom.user_id = params[:user_id]
+#       #   chatroom.publisher_id = params[:publisher_id]
+#       #   redirect_to
+#       # end
+#       redirect_to publisher_path(params[:publisher_id])
+#     end
+#   end
+
+#    def unmatch
+#       current_user.unmatch(params[:user_id], params[:publisher_id])
+#      redirect_to publisher_path(params[:publisher_id])
+#    end
+# end
 # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー↓publisher側ーーーーーーーーーーー
   # publisherがフォローするとき
 #   def publisher_match

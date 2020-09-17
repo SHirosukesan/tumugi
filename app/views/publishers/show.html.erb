@@ -1,6 +1,6 @@
 <div class="row">
    <div class="col-md-4 col-md-offset-4">
-      <%= link_to publishrs_path do %>
+      <%= link_to  publisher_path do %>
             <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
       <% end %>
       <table class="table table-inverse">
@@ -16,10 +16,10 @@
             </td>
             <td>
               <% if user_signed_in?%>
-                <% if UsersPublisher.already_sent_matched?(current_user.id, @publisher.id) %>
-                  <%= link_to 'いいね', unmatch_path(user_id: current_user.id, publisher_id: @publisher.id, follower_permission: true) %>
+                <% if UsersPublisher.exists?(user_id: current_user.id, publisher_id: @publisher.id )%>
+                  <%= link_to 'フォロー解除', publisher_users_publishers_path(@publisher.id),method: :delete %>
                 <% else %>
-                  <%= link_to 'いいね', match_path(user_id: current_user.id, publisher_id: @publisher.id, follower_permission: true) %>
+                  <%= link_to 'フォロー', publisher_users_publishers_path(@publisher.id),method: :post %>
                 <% end %>
               <% end %>
             </td>

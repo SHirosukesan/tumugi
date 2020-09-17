@@ -10,11 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_073452) do
+ActiveRecord::Schema.define(version: 2020_09_16_112658) do
 
   create_table "assessments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "publisher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publisher_id"], name: "index_chatrooms_on_publisher_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "chats", force: :cascade do |t|
@@ -154,10 +163,9 @@ ActiveRecord::Schema.define(version: 2020_09_13_073452) do
   end
 
   create_table "users_publishers", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followed_id"
-    t.boolean "follower_permission", default: false, null: false
-    t.boolean "followed_permission", default: false, null: false
+    t.integer "user_id"
+    t.integer "publisher_id"
+    t.boolean "follow_permission", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

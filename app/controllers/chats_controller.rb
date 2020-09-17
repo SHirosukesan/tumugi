@@ -12,4 +12,5 @@ class ChatsController < ApplicationController
         @chat_matching.create_notification_comment!(current_user, @comment.id)
         render :index
      end
+  end
 end

@@ -13,7 +13,7 @@
               <thead>
                 <tr>
                   <th>
-                    <td><%= attachment_image_tag image, :image, fallback: "no-image.jpg", size:'50x50' %></td>
+                    <!-- <td><%#= attachment_image_tag @user, :image, fallback: "no-image.jpg", size:'50x50' %></td> -->
                     <div id="list"></div>
 <!-------------------プレビュー機能のid----------------------------------------------------------------
  -->                    <% @user.images.each do |image| %>
@@ -31,15 +31,18 @@
                 </td>
                     <td>
                       <% if publisher_signed_in?%>
-                        <% if UsersPublisher.already_sent_matched?(@user.id, current_publisher.id) %>
-                          <%= link_to 'unfollow', publisher_unmatch_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
-                        <% else %>
-                          <%= link_to 'フォローする', publisher_match_path(user_id: @user.id, publisher_id: current_publisher.id, follower_permission: true) %>
+                        <% if UsersPublisher.exists?(user_id: @user.id, publisher_id: current_publisher.id )%>
+                        <% if UsersPublisher.find_by(user_id: @user.id, publisher_id: current_publisher.id ).follow_permission == false%>
+                          <%= link_to 'フォロー', user_users_publishers_path(@user.id),method: :patch %>
+                         <% else %>
+                          <%= link_to 'フォロ解除', user_users_publishers_path(@user.id),method: :patch %>
+                        <% end %>
                         <% end %>
                       <% end %>
 
-                         <tbody>
                   　</td>
+            </tr>
+           </tbody>
          </table>
          <span><%= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
     </div>

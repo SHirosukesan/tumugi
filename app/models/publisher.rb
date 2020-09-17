@@ -8,6 +8,7 @@ class Publisher < ApplicationRecord
   has_many :matcher, class_name: "UsersPublisher", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :matched, class_name: "UsersPublisher", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :notifications, dependent: :destroy
+  has_many :users_publishers, dependent: :destroy
   accepts_attachments_for :publisher_images,attachment: :publisher_image
 
   # ーーーーーーーーーーーーーーーーーーーーーーーーーfavorite機能ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー

@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :users_publishers, dependent: :destroy
   accepts_attachments_for :images,attachment: :image
   # 画像を複数枚受け付ける
   def favorited_by?(publisher)

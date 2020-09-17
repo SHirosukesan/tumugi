@@ -22,6 +22,9 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to edit_user_path(@user.id)
   end
+  def follow_index
+    @user = User.find(current_user.id)
+  end
 
   def destroy
   end
