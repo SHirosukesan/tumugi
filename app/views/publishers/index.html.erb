@@ -1,30 +1,22 @@
- <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+ <!--<div class="row">-->
+    <div class="flex-container">
 		<% @users.each do |user| %>
-			<table>
-				<tr>
-					<th>
-						<!-- userのイメージ存在するか？ -->
-					 <% if user.images.present? %>
-		  				 <% user.images.each do |image| %>
-					     	<%= attachment_image_tag image, :image, :fill, 150, 150 %>
-		                 <% end %>
-					 <% else %>
-					    <%= image_tag 'noimg.jpg', size: '150x150' %>
+		<div class="flex-item">
+			<% if user.images.present? %>
+			  	<% user.images.each do |image| %>
+			  	<span style="display: inline-block;text-align: center;" >
+					<%= attachment_image_tag image, :image, :fill, 150, 150 %>
+				    <% end %>
+					<% else %>
+						<%= image_tag 'noimg.jpg', size: '150x150' %>
 					<% end %>
-					     <%= user.nickname%>
-					   <!--   特技 -->
-					    <!--  前職 -->
-					     <%= user.age %>
-					     <%= user.prefecture %>
-				    </th>
-				</tr>
-				<tr>
-			    	<td>
-				      <%= user.profile %>
-			    	</td>
-			    </tr>
-			</table>
+			　　　</span>
+				 <br>
+				     <%= user.nickname%>
+				     <%= user.age %>
+				 <br>
+			         <div class="a" ><%= user.profile%></div>
+	   </div>
 		<% end %>
 	</div>
-</div>
+<!--</div>-->

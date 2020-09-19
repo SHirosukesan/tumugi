@@ -3,12 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :group,optional:true
-  has_many :skills, dependent: :destroy
-  has_many :works, dependent: :destroy
-  has_many :hobies, dependent: :destroy
   has_many :images, dependent: :destroy
-  has_many :favorites, dependent: :destroy
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :following_user, through: :follower, source: :followed # 自分がフォロー>している人
@@ -17,7 +12,6 @@ class User < ApplicationRecord
   has_many :matched, class_name: "UsersPublisher", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
-  has_many :notifications, dependent: :destroy
   has_many :users_publishers, dependent: :destroy
   accepts_attachments_for :images,attachment: :image
   # 画像を複数枚受け付ける
@@ -58,16 +52,8 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 end
+# -------------------------------------------退会user-----------------------------------------------------------------
 
-# ---------------------------通知機能でたす-----------------------------------------
-#フォロー時の通知
- def create_notification_follow!(current_user)
-    temp = Notification.where(["visiter_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        visited_id: id,
-        action: 'follow'
-      )
-      notification.save if notification.valid?
-    end
-  end
+def active_for_authentication?
+    super && (self.is_withdrawal == false)
+end

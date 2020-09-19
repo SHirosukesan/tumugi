@@ -1,9 +1,0 @@
-<% if user.favorited_by?(current_publisher) %>
-    <%= link_to favorites_path(publisher.id), method: :delete,remote: true do %>
-      <span class="glyphicon glyphicon-heart"><%= publisher.favorites.count%></span>
-    <% end %>
-  <% else %>
-    <%= link_to favorites_path(publisher.id), method: :post,remote: true do %>
-      <span class="glyphicon glyphicon-heart-empty"><%= publisher.favorites.count %></span>
-    <% end %>
-  <% end %>

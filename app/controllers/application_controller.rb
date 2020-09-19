@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 	  case resource
 	  when User
 	    users_path
+	    # ,flash[:notice]="登録が完了しました"
 	  when Publisher
 	    publishers_path
 	  end

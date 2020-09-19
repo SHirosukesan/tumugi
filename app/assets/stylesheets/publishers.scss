@@ -2,6 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //----tugumi-----------------------------------------------------------
+.flex-container {
+     display: flex;
+     flex-wrap: wrap;
+     // justify-content: center;
+}
+
+.flex-item{
+    text-align: center;
+    width: 25%;
+    // word-wrap: break-word;
+}
+
+.a{
+	overflow: hidden;
+	width: 25%;
+	text-align: center;
+	padding-left:70px;
+	padding-right:70px;
+}
+
+
+
 p{
   width: 100%;
 }

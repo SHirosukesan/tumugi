@@ -11,9 +11,12 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
 //= require activestorage
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
+
 
 //document.getElementById('user_images_images').onchange = function(event){
 // -----------------------------------プレビュー機能----------------------------------

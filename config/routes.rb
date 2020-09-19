@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       :sessions => 'users/sessions',
       :passwords => 'users/passwords'
     }
+  put "/users/:id/hide" => "users#hide", as: 'users_hide'
     # ※上記の記入でコントローラーを分ける,書いたほうがいいdavaiceinstall時にも別のコントローラーができる。そのコントローラーは特に何もいじらないとき使う。コントローラーの作成の必要がない。
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'users#home'
@@ -34,35 +35,19 @@ Rails.application.routes.draw do
   get 'publishers/edit_profile'
 # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーpublisherのformの
   get 'publishers/top'
-  get 'assessments/index'
   get 'matchings/index'
-  # get 'notifications/index'
-  get 'chats/index'
   get 'publishers/index'
-  get 'skills/index'
-  get 'groups/index'
-  get 'hobies/index'
-  get 'works/index'
-  get 'work/index'
   # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーuserのフォロー機能
-  post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
-  delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
   get 'match' => 'users_publishers#match', as: 'match' # フォローする
   get 'unmatch' => 'users_publishers#unmatch', as: 'unmatch' # フォロー外す
 # ---------------マッチング機能------------------------------------------------------------------
   get 'publisher_match' => 'users_publishers#publisher_match', as: 'publisher_match' # フォローする
   get 'publisher_unmatch' => 'users_publishers#publisher_unmatch', as: 'publisher_unmatch' # フォロー外す
   # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
-  resources :notifications, only: :index
   resources :users, expect:[:new] do
       resource :users_publishers,only:[:update]
   end
   resources :publishers, expect:[:new,:index] do
       resource :users_publishers,only:[:create,:destroy]
-
   end
-  resources :chat_rooms, only: :show
-  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーいいね機能ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
-  resource :favorites, only: [:create, :destroy]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

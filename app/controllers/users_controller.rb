@@ -60,6 +60,17 @@ class UsersController < ApplicationController
   def edit_prefecture
     @user = User.find(current_user.id)
   end
+
+  def hide
+        @user = User.find(params[:id])
+        #is_deletedカラムにフラグを立てる(defaultはfalse)
+        @user.update(is_withdrawal: true)
+        #ログアウトさせる
+        reset_session
+        flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+        redirect_to root_path
+    end
+
   private
 
   def user_params
