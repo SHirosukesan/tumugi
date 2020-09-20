@@ -2,18 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //----tugumi-----------------------------------------------------------
+// ------------画像の配置--------------------
 .flex-container {
      display: flex;
      flex-wrap: wrap;
      // justify-content: center;
 }
-
+// ------------下の要素の幅-------------------
 .flex-item{
     text-align: center;
     width: 25%;
     // word-wrap: break-word;
 }
-
+// ---------------文字数--------------------------
 .a{
 	overflow: hidden;
 	width: 25%;
@@ -22,7 +23,7 @@
 	padding-right:70px;
 }
 
-
+// --------------------------------------------
 
 p{
   width: 100%;

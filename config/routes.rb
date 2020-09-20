@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'users/edit_profile'
   get 'users/edit_prefecture'
   get 'users/follow_index'
+
   # ーーーーーーーーーーーーーーーーーーーーーーーーーuserのformの
 # userのroutes
   get 'publishers/edit_email'
@@ -42,8 +43,12 @@ Rails.application.routes.draw do
   get 'unmatch' => 'users_publishers#unmatch', as: 'unmatch' # フォロー外す
 # ---------------マッチング機能------------------------------------------------------------------
   get 'publisher_match' => 'users_publishers#publisher_match', as: 'publisher_match' # フォローする
-  get 'publisher_unmatch' => 'users_publishers#publisher_unmatch', as: 'publisher_unmatch' # フォロー外す
-  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
+  get 'publisher_unmatch' => 'users_publishers#publisher_unmatch', as: 'publisher_unmatch'
+  # # フォロー外す#--------------------------フォローフォロワー--------------------------------------------
+  post "follower/users/:id" => "relationships#unfollow",as:"unfollow"
+  post "follow/users/:id" => "relationships#follow",as:"follow"
+
+  # # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
   resources :users, expect:[:new] do
       resource :users_publishers,only:[:update]
   end

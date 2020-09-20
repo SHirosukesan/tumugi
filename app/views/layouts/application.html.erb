@@ -20,9 +20,8 @@
                 </span >
             <div class="navbar-right">
               <!--会員がログインしている場合の表示 -->
-              <%= user_signed_in? %>
-              <%= publisher_signed_in?%>
               <% if user_signed_in? %>
+               <span>userページ</span>
                 <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to '自己紹介ページ', user_path(current_user.id) %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-smiley-o"></i><br><%= link_to 'お相手から(依頼)', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング（メール）', root_path %></span>
@@ -31,6 +30,7 @@
                 <span class="btn btn-default navbar-btn"><i class="im im-support"></i></i><br><%= link_to 'ボランティア（依頼一覧）', users_path %></span>
                 <!--管理者がログインしている場合の表示-->
               <% elsif publisher_signed_in?%>
+              　<span>掲載者ページ</span>
                 <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to 'マイページ', publisher_path(current_publisher.id)%></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-frown-o"></i><br><%= link_to 'ユーザーからの応募', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'やりとり中', root_path %></span>
@@ -43,23 +43,26 @@
       </nav>
     </header>
     <main>
+    <%= flash[:notice] %>
+    <%= flash[:erorr] %>
+
     <%= yield %>
   </main>
     <footer>
-<!--       --------------------------------通知機能の片割れ------------------------------------------
- --><!--   <#% if unchecked_notifications.any? %>
+<!--       --------------------------------通知機能の片割れ------------------------------------------>
+<!--   <#% if unchecked_notifications.any? %>
       <i class="fa fa-circle" style="color: gold;"></i>
       <#% end %>
       <li>
           <%#= link_to "NOTICE", users_notifications_path, class: "btn-default" %>
       </li> -->
-      <!-- --------------------------------------footerの中身--------------------------------------------- -->
+<!-- --------------------------------------footerの中身--------------------------------------------- -->
     <p class="footer-text">© All Rights Reserved By TETUDATTEYOBBA.<i class="fas fa-hamburger"></i>
     <span class="btn btn-default navbar-btn"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
     <span class="btn btn-default navbar-btn"><%= link_to 'Logout_publisher', destroy_publisher_session_path, method: :delete %></span>
   <% if user_signed_in? %>
-    <span class="btn btn-default navbar-btn">Goo<i class="im im-car"></i>bye!! &#9996;<br><%= link_to 'サイトを退会しデータを消す', users_hide_path(current_user.id) %></span>
+    <span class="btn btn-default navbar-btn">Goo<i class="im im-car"></i>bye!! &#9996;<br><%= link_to 'サイトを退会しデータを消す', users_hide_path(current_user.id),method: :put%></span>
   <% end %>
-  </footer>
+<!-----------------------user_signed_in?で誰が入っている？って聞かれているから下のリンク先はcurrent_userを記入------------------------->  </footer>
   </body>
 </html>

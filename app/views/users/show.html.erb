@@ -5,8 +5,7 @@
       <% end %>
 
        <table class="table table-inverse">
-<!----------------------------画像を送っているおくらえさきはデータの更新なのでアップデート、その後表示される----------------------------------------
- -->                    <%= form_for(@user) do |f| %>
+<!------------------------画像を送っているおくらえさきはデータの更新なのでアップデート、その後表示される--------------------------------->                    <%= form_for(@user) do |f| %>
                       <p>画像<%= f.attachment_field :images_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
                     <%= f.submit %>
                     <% end %>
@@ -15,17 +14,27 @@
                   <th>
                     <!-- <td><%#= attachment_image_tag @user, :image, fallback: "no-image.jpg", size:'50x50' %></td> -->
                     <div id="list"></div>
-<!-------------------プレビュー機能のid----------------------------------------------------------------
- -->                    <% @user.images.each do |image| %>
-                    <td><%= attachment_image_tag image, :image, fallback: "no-image.jpg", size:'50x50' %></td>
-<!--------------------------------------画像埋め込んで表示している---------------------------------------------
- -->                    <%end%>
+<!-------------------プレビュー機能のid---------------------------------------------------------------->                    
+					<% @user.images.each do |image| %>
+					                    <td><%= attachment_image_tag image, :image, fallback: "no-image.jpg", size:'50x50' %></td>
+<!--------------------------------------画像埋め込んで表示している------------------------------------------>                    
+					<%end%>
 <!---------------------------------プレビュー機能のid---------->
                  </th>
                 </tr>
               </thead>
           <tbody>
               <tr>
+                <h1>フォロー-機能</h1>
+                <%= current_user.id %>
+                <%= @user.id%>
+              	<% if current_user != @user %>
+                  <% if current_user.following?(@user) %>
+                    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+                  <% else %>
+                    <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+                  <% end %>
+                <% end %>
                 <td>
                   <h4>ニックネーム :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp;居住地 :<%=@user.prefecture%><%#= render 'shared/favolites', user:@user%></h4>
                 </td>
@@ -44,10 +53,10 @@
             </tr>
            </tbody>
          </table>
-         <span><%= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+         <span><%#= link_to 'プロフィール編集・確認', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
     </div>
 </div>
-<!--</tr>
+<!---</tr>
           <tr>
             <td>chat room
             </td>

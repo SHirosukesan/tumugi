@@ -35,9 +35,9 @@ class Users::SessionsController < Devise::SessionsController
           flash[:error] = "退会済みです。"
           redirect_to root_path
         end
-      else
-        flash[:error] = "必須項目を入力してください。"
-        redirect_to users_hide_path
-      end
+      # else
+      #   flash[:error] = "必須項目を入力してください。"
+      #   redirect_to root_path
+       end
      end
 end

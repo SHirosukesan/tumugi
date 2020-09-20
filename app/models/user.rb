@@ -14,10 +14,16 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   has_many :users_publishers, dependent: :destroy
   accepts_attachments_for :images,attachment: :image
-  # 画像を複数枚受け付ける
+  # 上　画像を複数枚受け付ける
+
+
+
+  #------------------いいね機能----------------------------------------------------------------
   def favorited_by?(publisher)
     favorites.where(publisher_id:publisher.id).exists?
   end
+
+  #--------------------------フォロー機能---------------------------------------------
    # ユーザーをフォローする
   def follow(user_id)
     follower.create(followed_id: user_id)
