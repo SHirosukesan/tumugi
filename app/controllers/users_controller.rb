@@ -70,6 +70,8 @@ class UsersController < ApplicationController
         flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
         redirect_to root_path
     end
+  def search
+  end
 
   private
 

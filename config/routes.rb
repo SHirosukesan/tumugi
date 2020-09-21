@@ -47,6 +47,8 @@ Rails.application.routes.draw do
   # # フォロー外す#--------------------------フォローフォロワー--------------------------------------------
   post "follower/users/:id" => "relationships#unfollow",as:"unfollow"
   post "follow/users/:id" => "relationships#follow",as:"follow"
+#---------------------------search機能------------------------------------------------------------
+  get "search" => "users#search"
 
   # # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
   resources :users, expect:[:new] do
