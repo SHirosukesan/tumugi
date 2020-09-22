@@ -34,7 +34,7 @@ function onclick_preiew_image()
       return function (e) {
         // ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーdiv作成してるした
         var span = document.createElement('span');
-        span.innerHTML += '<img class="reader_image" src="' + e.target.result + '" />';
+        span.innerHTML += '<img class="reader_image" src="' + e.target.result + '" style="width:50px;height:50px;"/>';
         document.getElementById('list').insertBefore(span, null);
       }
     })(f);

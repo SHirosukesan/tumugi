@@ -10,24 +10,24 @@
             <thead>
              <tr>
                 <th>
-                  <%= attachment_image_tag(@publisher.publisher_images[0],:fill, 150, 150,fallback:"noimg.jpg",size:"100x100") %>
+                  <%= attachment_image_tag(@publisher.publisher_images[0],:publisher_image,size:"100x100", fallback:"noimg.jpg") %>
                 </th>
               </tr>
-<!-----------------複数画像投稿---------------------------------------隣でとうっているため、プレビュー機能のかんぅせいあり->
-            <!- <tr>
-                <th> -->
-                  <%#= form_for(@publisher) do |f| %>
-                <!--     <p>画像<%#= f.attachment_field :publisher_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
-                  <%#= f.submit %>
-                  <#% end %>
-            </th>
-            </tr>
-            <tr> -->
+<!-----------------複数画像投稿---------------------------------------隣でとうっているため、プレビュー機能のかんぅせいあり-->
+            <tr>
                 <th>
-                   <div id="list"><!-- プレビュー機能と埋め込み -->
+                  <%= form_for(@publisher) do |f| %>
+                   <p>画像<%= f.attachment_field :publisher_images_publisher_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
+                  <%= f.submit "送信" %>
+                  <% end %>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                   <div id="list"><!--プレビュー機能と埋め込み -->
                        <% @publisher.publisher_images.each do |publisher_image| %>
                        <th>
-                          <%= attachment_image_tag publisher_image, :publisher_image, fill,100,100,fallback: "noimg.jpg", size:'50x50' %>
+                          <%= attachment_image_tag publisher_image, :publisher_image, size:'50x50', fallback: "noimg.jpg" %>
                         </th>
                        <%end%>
                    </div>

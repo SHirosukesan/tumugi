@@ -20,10 +20,16 @@ class PublishersController < ApplicationController
     @publisher = Publisher.find(current_publisher.id)
   end
   def update
+    @publisher = Publisher.find(params[:id])
+    @publisher.update(publisher_params)
+    redirect_to publisher_path(@publisher.id)
   end
   def destroy
   end
+
+  private
+
+  def publisher_params
+    params.require(:publisher).permit(:firstname, :lastname, :address, :postalcode, :nicname, :status, :number, :profile, :age, :competence, :company_name, :name, publisher_images_publisher_images:[])
+  end
 end
-
-
-# ※userの情報も持ってこれる

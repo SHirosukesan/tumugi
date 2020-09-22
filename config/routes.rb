@@ -48,7 +48,8 @@ Rails.application.routes.draw do
   # # フォロー外す#--------------------------フォローフォロワー--------------------------------------------
   post "follower/users/:id" => "relationships#unfollow",as:"unfollow"
   post "follow/users/:id" => "relationships#follow",as:"follow"
-  get "follow_index" => "users#follow_index"
+  get "following_index" => "users#following_index"
+  get "follower_index" => "users#follower_index"
 #---------------------------search機能------------------------------------------------------------
   get "search" => "users#search"
 

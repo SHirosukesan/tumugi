@@ -16,19 +16,20 @@
                  <th>
                     <%= form_for(@user) do |f| %>
                     <p>画像<%= f.attachment_field :images_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
-                    <%= f.submit %>
+                    <%= f.submit "送信"%>
                     <% end %>
                  </th>
                  <th>
                      <div id="list"><!-- プレビュー機能 下に生かしたい。-->
                        <% @user.images.each do |image| %>
-                       <th><%= attachment_image_tag image, :image, fallback: "noimg.jpg", size:'50x50' %></th>
+                       <th><%= attachment_image_tag image, :image, size:'50x50', fallback: "noimg.jpg" %></th>
+                       <%end%>
                      </div>
                  </th>
                 </thead>
 
         <!--------------------------------------画像埋め込んで表示している------------------------------------------>
-        					<%end%>
+
         <!---------------------------------プレビュー機能のid---------->
                        </th>
                       </tr>

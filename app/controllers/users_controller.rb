@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to edit_user_path(@user.id)
+    redirect_to user_path(@user.id)
   end
   def follow_index
     @user = User.find(current_user.id)
@@ -95,7 +95,10 @@ class UsersController < ApplicationController
   def search
   end
 
-  def follow_index
+  def following_index
+    @user = User.find(current_user.id)
+  end
+  def follower_index
     @user = User.find(current_user.id)
   end
 
