@@ -12,6 +12,8 @@ class PublishersController < ApplicationController
       @user.create_notification_follow!(current_user)
   end
   def show
+    @publishers = Publisher.all
+     #----------------画像の表示-------------------------------
     @publisher=Publisher.find(params[:id])
   end
   def edit

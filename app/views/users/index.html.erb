@@ -1,28 +1,23 @@
- <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-			 <% @publishers.each do |publisher| %>
-				<table>
-					<tr>
-						<th>
+ <div class="flex-container">
+	   <% @publishers.each do |publisher| %>
+                <div class="flex-item">
 							<!-- userのイメージ存在するか？ -->
 						 <% if publisher.publisher_images.present? %>
 			  				 <% publisher.publisher_images.each do |image| %>
+			  				 <span style="display: inline-block;text-align: center;" >
 						     	<%= attachment_image_tag image, :image, :fill, 150, 150 %>
-			                 <% end %>
-						 <% else %>
-						    <%= image_tag 'noimg.jpg', size: '150x150' %>
-						<% end %>
+					             <% end %>
+								 <% else %>
+								 <%= image_tag 'noimg.jpg', size: '150x150' %>
+								 <% end %>
+						     </span>
+						     <br>
 						     <%= publisher.company_name%>
 						     <%= publisher.competence %>
 						     <%= publisher.address%>
-					    </th>
-					</tr>
-					<tr>
-				    	<td>
-					      <%= publisher.profile %>
-				    	</td>
-				    </tr>
-				</table>
+						     <br>
+					         <div class="a" ><%= publisher.profile %></div>
+			    </div>
 				<% end %>
 		</div>
  </div>

@@ -4,15 +4,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :images, dependent: :destroy
+  has_many :users_publishers, dependent: :destroy
+#--------------フォロー機能-------------------------------------------------------------------------------------------------------
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :following_user, through: :follower, source: :followed # 自分がフォロー>している人
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
+ #---------------------------------------UserPublisher-----------------------------------------------------------------------
   has_many :matcher, class_name: "UsersPublisher", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :matched, class_name: "UsersPublisher", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
+#-------------------------------通信機能-------------------------------------------------------------------
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   has_many :users_publishers, dependent: :destroy
+#-----------------------Dm機能-------------------------------------------------
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :rooms, through: :entries
+#------------------------画像の埋め込み-------------------------------------------------------
   accepts_attachments_for :images,attachment: :image
   # 上　画像を複数枚受け付ける
 

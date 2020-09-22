@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # ーーーーーーーーーーーーーーーdeviceたちーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   devise_for :publishers,:controllers => {
       :registrations => 'publishers/registrations',
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   get 'users/edit_profile'
   get 'users/edit_prefecture'
   get 'users/follow_index'
-
+  #---------------------------------------------------------チャットアプリ
   # ーーーーーーーーーーーーーーーーーーーーーーーーーuserのformの
 # userのroutes
   get 'publishers/edit_email'
@@ -51,6 +52,10 @@ Rails.application.routes.draw do
   get "search" => "users#search"
 
   # # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
+  # resources :users, only: [:show,:edit,:update]
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create,:show, :index]
+  resources :entries, only: [:index]
   resources :users, expect:[:new] do
       resource :users_publishers,only:[:update]
   end

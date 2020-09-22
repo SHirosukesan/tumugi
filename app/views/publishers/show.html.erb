@@ -1,63 +1,62 @@
 <div class="row">
-   <div class="col-md-4 col-md-offset-4">
+   <div class="col-md-6 col-md-offset-3">
       <%= link_to  publisher_path do %>
             <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
       <% end %>
+      <h3>企業側ページ</h3>
+     <div class="kokuban-s3">
       <table class="table table-inverse">
-
-      <tbody>
-        <tr>
-            <td><h4>職場 :<%=@publisher.nicname%>&emsp;<%=@publisher.age%>歳&emsp; 場所:<%=@publisher.competence%></h4></td>
-        </tr>
-        <tr>
-            <td>
-                <h3>手伝ってほしい内容</h3>
-                <p><%=@publisher.profile%></p>
-            </td>
-            <td>
-              <% if user_signed_in?%>
-                <% if UsersPublisher.exists?(user_id: current_user.id, publisher_id: @publisher.id )%>
-                  <%= link_to 'フォロー解除', publisher_users_publishers_path(@publisher.id),method: :delete %>
-                <% else %>
-                  <%= link_to 'フォロー', publisher_users_publishers_path(@publisher.id),method: :post %>
-                <% end %>
-              <% end %>
-            </td>
-     <tbody>
+<!------------------------画像を送っているおくらえさきはデータの更新なのでアップデート、その後表示される--------------------------------->
+            <thead>
+             <tr>
+                <th>
+                  <%= attachment_image_tag(@publisher.publisher_images[0],:fill, 150, 150,fallback:"noimg.jpg",size:"100x100") %>
+                </th>
+              </tr>
+<!-----------------複数画像投稿---------------------------------------隣でとうっているため、プレビュー機能のかんぅせいあり->
+            <!- <tr>
+                <th> -->
+                  <%#= form_for(@publisher) do |f| %>
+                <!--     <p>画像<%#= f.attachment_field :publisher_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
+                  <%#= f.submit %>
+                  <#% end %>
+            </th>
+            </tr>
+            <tr> -->
+                <th>
+                   <div id="list"><!-- プレビュー機能と埋め込み -->
+                       <% @publisher.publisher_images.each do |publisher_image| %>
+                       <th>
+                          <%= attachment_image_tag publisher_image, :publisher_image, fill,100,100,fallback: "noimg.jpg", size:'50x50' %>
+                        </th>
+                       <%end%>
+                   </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td><h4>職場 :<%=@publisher.nicname%>&emsp;<%=@publisher.age%>歳&emsp; 場所:<%=@publisher.competence%></h4></td>
+              </tr>
+              <tr>
+                  <td>
+                      <span>手伝ってほしい内容</span>
+                      <p><%=@publisher.profile%></p>
+                  </td>
+                  <td>
+                    <% if user_signed_in?%>
+                      <% if UsersPublisher.exists?(user_id: current_user.id, publisher_id: @publisher.id )%>
+                        <%= link_to 'フォロー解除', publisher_users_publishers_path(@publisher.id),method: :delete %>
+                      <% else %>
+                        <%= link_to 'フォロー', publisher_users_publishers_path(@publisher.id),method: :post %>
+                      <% end %>
+                    <% end %>
+                  </td>
+              </tr>
+           </tbody>
      </table>
-     <span><%= link_to 'プロフィール編集・確認', edit_publisher_path(@publisher.id), class: 'btn btn-default navbar-btn' %></span>
+    </div>
+     <span>
+      <%= link_to 'プロフィール編集・確認', edit_publisher_path(@publisher.id), class: 'btn btn-default navbar-btn' %>
+      </span>
    </div>
-</div>
-<!-- # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー↓publisher側ーーーーーーーーーーー
-  # publisherがフォローするとき
-#   def publisher_match
-#     if params[:follower_permission]
-#       current_publisher.match(params[:user_id],params[:publisher_id],params[:follower_permission])
-#       redirect_to user_path(params[:user_id])
-#     end
-
-#     @ff = false #片思い
-#     if Users_publishers.exists?(follower_id: params[:user_id], followed_id:params[:publisher_id])
-#       @ff = true #相互フォロー状態
-#       if (ChatRooms.exists(publisher_id: current_publisher, user_id: current_user.id))
-#         # 既にチャットルームが存在しているならばそのチャットテーブルを取得
-#         @chat = ChatRooms.find_by(publisher_id: current_publisher, user_id:current_user.id)
-#       else
-#         # 存在しなければチャットルームを新規作成
-#         @chat = ChatRooms.new
-#         @chat.publisher_id = params[:publisher_id]
-#         @chat.user_id = params[:user_id]
-#         @chat.save
-#       end
-#     end
-
-#   end
-
-#   def publisher_unmatch
-#       current_publisher.unmatch(params[:user_id], params[:publisher_id])
-#       redirect_to user_path(params[:user_id])
-#   end
-# end
-
-
-  # コメ後々共通化したほうが良い -->

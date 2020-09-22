@@ -10,7 +10,29 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users =User.all
+    #---------ニックネームとか出すよう-----------------------------------------------
     @user=User.find(params[:id])
+    #-------------ひとりひとりの情報を持ってくる--------------------------
+    #------------上edit_pageにも使っている,下でも使っているDm機能で------------------------------------------
+    @currentUserEntry=Entry.where(user_id: current_user.id)
+    #現在ログインしているユーザー-------------------------whereで条件に合う人を全て持ってきている-----------------------------------------------------
+    @userEntry=Entry.where(user_id: @user.id)
+    unless @user.id == current_user.id
+      @currentUserEntry.each do |cu|
+        @userEntry.each do |u|
+          if cu.room_id == u.room_id then
+            @isRoom = true
+            @roomId = cu.room_id
+          end
+        end
+      end
+      if @isRoom
+      else
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
   end
 
   def edit
