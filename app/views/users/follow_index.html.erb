@@ -1,17 +1,19 @@
+<!--ログインuserに紐づいている。複数のフォローユーザーだからeachでまわす-->
 <h1>掲載者一覧</h1>
-
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-		<% @user.users_publishers.each do |users_publisher| %>
-		  <%= users_publisher.publisher.id %>
-		  <%# if UsersPublisher.(user_id: current_user.id ,publisher_id: users_publisher.publisher.id).follow_permission == true %>
-		    <%#= link_to "チャットルームへ",  チャットルーム用のパス_path(users_publisher.publisher) %>
-		   <%# end %>
-		   <!-- チャットルームの遷移方法 -->
-		<% end %>
-	</div>
+<h3>連絡しようと声かけてきた人｜フォロー｜</h3>
+<div>
+	<% @user.following_user.each do |following| %>
+	<%=following.images.image%>
+	<%=following.age%>
+	<%=following.nickname%>
+<% end %>
 </div>
 
-
-<!-- users_follow_index_path -->
-
+	<h3>連絡しようと声かけしている人｜フォロワー｜</h3>
+<div>
+	<% @user.follower_user.each do |following| %>
+	<%=following.images.image%>
+	<%=following.age%>
+	<%=following.nickname%>
+<% end %>
+</div>

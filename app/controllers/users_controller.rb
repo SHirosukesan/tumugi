@@ -95,6 +95,10 @@ class UsersController < ApplicationController
   def search
   end
 
+  def follow_index
+    @user = User.find(current_user.id)
+  end
+
   private
 
   def user_params

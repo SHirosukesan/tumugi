@@ -21,11 +21,10 @@
             <div class="navbar-right">
               <!--会員がログインしている場合の表示 -->
               <% if user_signed_in? %>
-               <span>userページ</span>
                 <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to '自己紹介ページ', user_path(current_user.id) %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-smiley-o"></i><br><%= link_to 'お相手から(依頼)', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング（メール）', root_path %></span>
-                <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to 'グループ', root_path %></span>
+                <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to '相手から・自分から(連絡)', users_follow_index_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-magnifier"></i><br><%= link_to 'スカウト', root_path %></span>
                 <span class="btn btn-default navbar-btn"><i class="im im-support"></i></i><br><%= link_to 'ボランティア（依頼一覧）', users_path %></span>
                 <!--管理者がログインしている場合の表示-->

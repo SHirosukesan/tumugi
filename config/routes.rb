@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   # ーーーーーーーーーーーーーーーdeviceたちーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   devise_for :publishers,:controllers => {
       :registrations => 'publishers/registrations',
@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   # # フォロー外す#--------------------------フォローフォロワー--------------------------------------------
   post "follower/users/:id" => "relationships#unfollow",as:"unfollow"
   post "follow/users/:id" => "relationships#follow",as:"follow"
+  get "follow_index" => "users#follow_index"
 #---------------------------search機能------------------------------------------------------------
   get "search" => "users#search"
 
