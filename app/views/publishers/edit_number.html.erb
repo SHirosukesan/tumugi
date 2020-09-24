@@ -5,8 +5,8 @@
           <% end %>
           <hr>
           <div>
-            <%= form_with model: @publisher,url: publisher_path(current_publisher.id) do |form| %>
-            住所：<%= form.text_field :address %>
+            <%= form_with model: @publisher,url: publisher_path(@publisher.id) do |form| %>
+            電話番号：<%= form.text_field :number %>
             <br>
             <br>
             <br>
