@@ -1,24 +1,58 @@
-# README
+# <アプリ名>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+定年になった方を中心にやりがいを見つけるサイトです。
+人生100年時代の中、定年後やりがいを見つけられない方、仕事でつちかった
+能力が埋もれて言ってしまうのは残念でなりません。
+現在介護施設では人員不足、外部との交流の不足等の色々な問題を抱えています。
+外部との関わりが増えることで変わることは多くあると思います。
+介護施設の見た目を元大工さんに作ってもらったり、バーを開いてもらったり
+コミュニケーションをとるだけでもいいので様々な改革に挑戦してみませんか？
+自身でたちで施設のイメージや雰囲気を変えて行ってもらう。
 
-Things you may want to cover:
 
-* Ruby version
+### サイトテーマ
+介護施設の人間関係を広める。
+介護士の仕事の削減。
+人件費削減
+人と人をつなげ、やりがいを見つける
+コミュニティーの作成
 
-* System dependencies
 
-* Configuration
+### テーマを選んだ理由
+以前介護施設で働いておりこのような機能があったらいいなと感じた。
+現在の介護現場は介護士や看護師などの医療関係者のみではなく地域や人同年代に近い方々、
+や国が関わりを持ちながら良い状態を作っていく必要があると感じた
+人が楽しむ中では色々年代や職種の人との関わりが必要だなかんじた。
 
-* Database creation
 
-* Database initialization
+### ターゲットユーザ
+・メインターゲットは還暦の方や仕事に手が空いている方
+・コミュニティに所属されていない方
+・その他(介護施設、その他趣味で演奏や趣味などを発表したいかたボランティア)
+### 主な利用シーン
+・コミニティーやりがい探し
+・介護者側からの職種探し
 
-* How to run the test suite
+## 設計書
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/1Z-59PhWW307mJ9w0ffiHL57EkMa9blJbTF9p1hup9jY/edit?usp=sharing>
 
-* ...
+## 開発環境
+Ruby on Rails 5.x.x
+
+
+
+
+
+
+
+
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- 仮想環境：Vagrant,VirtualBox
