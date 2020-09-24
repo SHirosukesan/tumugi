@@ -78,3 +78,8 @@ gem 'pry-byebug'
 
 #１ページ分の決められたデータのみ取得
 gem 'kaminari'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
