@@ -5,7 +5,7 @@
           <% end %>
           <hr>
           <div>
-            <%= form_with model: @publisher,url: publisher_path(current_publisher.id) do |form| %>
+            <%= form_with model: @publisher,url: publisher_path(@publisher.id) do |form| %>
             住所：<%= form.text_field :address %>
             <br>
             <br>

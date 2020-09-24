@@ -1,16 +1,15 @@
 <div class="row">
-   <div class="col-md-8">
-      <%= link_to rooms_path do %>
+  <%= link_to rooms_path do %>
             <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
-      <% end %>
-      <h3>自己紹介ページ</h3>
+  <% end %>
+   <div class="col-md-8">
       <div class="kokuban-s2">
              <table class="table table-inverse table">
       <!------------------------画像を送っているおくらえさきはデータの更新なのでアップデート、その後表示される--------------------------------->
                <thead>
       <!--   ----------------------------Top画---------->
                  <th>
-                   <%=attachment_image_tag(@user.images[2],:image ,:fill,150,150,fallback:"noimg.jpg",size:"100x100") %>
+                   <%=attachment_image_tag(@user.images[0],:image ,:fill,150,150,fallback:"noimg.jpg",size:"100x100") %>
                  </th>
       <!-----------------複数画像投稿---------------------------------------->
                  <th>
@@ -36,31 +35,44 @@
                     </thead>
                 <tbody>
                   <tr>
-                        <td><h4>職場 :<%=@user.nickname%>&emsp;<%=@user.age%>歳&emsp; 場所:<%=@user.competence%></h4></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h4>手伝ってほしい内容</h4>
-                            <p class="string"><%=@user.profile%></p>
-                        </td>
-                    <tr>
-      <!----------------user同士の----------------------------------------->
-                  <tr>
                     <td>
-                      <h4>フォロー機能</h4>
-                      <%#= current_user.id %数字を見るために使っていた>
-                      <%= @user.id%>
-                    	<% if current_user != @user %>
-                        <% if current_user.following?(@user) %>
-                          <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST , class:"btn btn-primary btn-lg center-block"%>
-                        <% else %>
-                          <%= link_to 'フォローする', follow_path(@user.id), method: :POST , class:"btn btn-primary btn-lg center-block"%>
-                        <% end %>
-                      <% end %>
+                      <h4>ニックネーム :<%=@user.nickname%>
+                      </h4>
                     </td>
                   </tr>
-      <!----------------------------------Dm機能とフォローからのマッチ機能との紐付け------------------------>         <tr>
+                  <tr>
                     <td>
+                      <h4>歳:<%=@user.age%>
+                      </h4>
+                    </td>
+                    <td>
+                      <h4>場所:<%=@user.prefecture%>
+                      </h4>
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>
+                        <div>
+                          <h4><b>〜自己紹介〜</b></h4>
+                          <p class="string"><%=@user.profile%></p>
+                        </div>
+                      </td>
+                  </tr>
+      <!----------------user同士の----------------------------------------->
+                      <td><h4><メッセージボタン></h4><td>
+                      <%#= current_user.id %数字を見るために使っていた>
+                      <%= @user.id%>
+                      <div>
+                    	<% if current_user != @user %>
+                        <% if current_user.following?(@user) %>
+                          <%= link_to 'メールやめておく', unfollow_path(@user.id), method: :POST , class:"btn btn-primary btn-lg center-block"%>
+                        <% else %>
+                          <%= link_to 'メール依頼', follow_path(@user.id), method: :POST , class:"btn btn-primary btn-lg center-block"%>
+                        <% end %>
+                      <% end %>
+                    </div>
+      <!----------------------------------Dm機能とフォローからのマッチ機能との紐付け------------------------>
+                    <div>
                       <% unless @user.id == current_user.id %>
                         <% if (current_user.following? @user) && (@user.following? current_user)  %>
                         <% if @isRoom == true %>
@@ -70,48 +82,35 @@
                             <%= fields_for @entry do |e| %>
                               <%= e.hidden_field :user_id, value: @user.id %>
                             <% end %>
-                            <span class=""><%= f.submit "チャットをRoomへ移行する", class:"btn btn-primary btn-lg user-show-chat"%></span>
+                            <span class=""><%= f.submit "メールする場所へ移動する", class:"btn btn-primary btn-lg user-show-chat"%></span>
                           <% end %>
                          <% end %>
                         <% end %>
                       <% end %>
-                     </td>
-                   </tr>
-                   <tr>
-                      <td>
-                        <h4>ニックネーム :<%=@user.nickname%>&emsp;<br><br><%=@user.age%>歳&emsp;<br><br>居住地 :<%=@user.prefecture%><%#= render 'shared/favolites', user:@user%></h4>
-                      </td>
-                   </tr>
-                   <tr>
-                      <td>
+                    </div>
+                    <div>
                           <% if publisher_signed_in?%>
                             <% if UsersPublisher.exists?(user_id: @user.id, publisher_id: current_publisher.id )%>
                             <% if UsersPublisher.find_by(user_id: @user.id, publisher_id: current_publisher.id ).follow_permission == false%>
-                              <%= link_to 'フォロー', user_users_publishers_path(@user.id),method: :patch %>
+                              <%= link_to '企業ボランティア依頼', user_users_publishers_path(@user.id),method: :patch %>
                              <% else %>
-                              <%= link_to 'フォロ解除', user_users_publishers_path(@user.id),method: :patch %>
+                              <%= link_to '企業ボランティア受付', user_users_publishers_path(@user.id),method: :patch %>
                             <% end %>
                             <% end %>
                           <% end %>
-                    　 </td>
-                    </tr>
+                    </div>
                  </tbody>
                </table>
        </div>
     </div>
      <div class="col-md-4">
-     	<br>
-     	<br>
-     	<br>
-     	<br>
-     	<br>
-     	<br>
-     	<br>
-     	<br>
-     	<br>
-         <span class="btn btn-default navbar-btn"><i class="im im-data-validate">プロフィール編集・確認</i><br><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>	
-         <span class="btn btn-default navbar-btn"><i class="im im-facebook-like">連絡しようと声かけしている人<br>｜フォロワー｜</i><br><%= link_to '押してくださ', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
-         <span class="btn btn-default navbar-btn"><i class="im im-accessibility"><i class="im im-facebook-like"></i><br>連絡しようと声かけしている人｜フォロワー｜<%= link_to '連絡しようと声かけしている人｜フォロワー｜', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
-         <span class="btn btn-default navbar-btn"><%= link_to '会話をする。｜トークルーム｜', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
-       </div>
+      <br>
+             <span class="btn btn-default navbar-btn col-md-11"><h4><b>プロフィール編集・確認</b></h4><br><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+
+             <span class="btn btn-default navbar-btn col-md-11"><h4><b>声かけした人<br>｜フォロー｜</b></h4><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+
+             <span class="btn btn-default navbar-btn col-md-11"><br><h4><b>声かけてきている人<br>｜フォロワー|</b></h4><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+
+             <span class="btn btn-default navbar-btn col-md-11"><h4><b>会話をする<br>｜トークルームへ｜</b></h4><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+      </div>
 </div>
