@@ -75,9 +75,7 @@
                     <div>
                       <% unless @user.id == current_user.id %>
                         <% if (current_user.following? @user) && (@user.following? current_user)  %>
-                        <% if @isRoom == true %>
-                          <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
-                        <% else %>
+                          <!-- <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a> -->
                         <% if @user_all.present? %>
                           <%= form_for @room do |f| %>
                             <%= fields_for @entry do |e| %>
@@ -85,8 +83,7 @@
                             <% end %>
                             <span class=""><%= f.submit "メールする場所へ移動する", class:"btn btn-primary btn-lg user-show-chat"%></span>
                           <% end %>
-                          <% end %>
-                         <% end %>
+                        <% end %>
                         <% end %>
                       <% end %>
                     </div>
