@@ -1,8 +1,0 @@
-<h3>連絡しようと声かけしている人｜フォロワー｜</h3>
-<div class="kokuban-s2" >
-	<% @user.follower_user.each do |following| %>
-	<%=following.images.image%>
-	<%=following.age%>
-	<%=following.nickname%>
-<% end %>
-</div>

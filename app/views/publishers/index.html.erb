@@ -2,22 +2,32 @@
 
     <div class="flex-container">
 		<% @users.each do |user| %>
-		<div class="flex-item kakomi-tape2">
-			<% if user.images.present? %>
-			  	<% user.images.each do |image| %>
-			  	<span style="display: inline-block;text-align: center;" >
-					<%= attachment_image_tag image, :image, :fill, 150, 150 %>
-				    <% end %>
-					<% else %>
-						<%= image_tag 'noimg.jpg', size: '150x150' %>
-					<% end %>
-			　　　</span>
-				 <br>
-				     <%= user.nickname%>
-				     <%= user.age %>
-				 <br>
-			         <div class="a" ><%= user.profile%></div>
-	   </div>
+			<div class="flex-item kakomi-tape2">
+			<%= link_to user_path(user.id) do %>
+			   <table class="table table-inverse table">
+			   	<tr>
+			   		<th>
+						<% if user.images.present? %>
+					  	<span style="display: inline-block;text-align: center;" >
+					    <%= attachment_image_tag user.images[0], :image, size: '150x150' %>
+						<% else %>
+							<%= image_tag 'noimg.jpg', size: '150x150' %>
+						<% end %>
+						</span>
+				    </th>
+		        </tr>
+		        <tr>
+		        	<td>ニックネーム:<%= user.nickname%></td><br>
+				    <td><%= user.age %>歳</td><br>
+				    <td><%=user.prefecture%>場所</td><br>
+					<span class="a" >
+						<td><%= user.profile%><td><br>
+					</span>
+				    </td>
+				</tr>
+			  </table>
+			<% end %>
+		    </div>
 		<% end %>
 	</div>
 <!--</div>-->

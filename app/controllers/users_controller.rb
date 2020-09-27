@@ -26,15 +26,14 @@ class UsersController < ApplicationController
             @roomId = cu.room_id
           end
         end
-      end
       if @isRoom
       else
         @room = Room.new
         @entry = Entry.new
       end
     end
+    end
   end
-
   def edit
     @user=User.find(current_user.id)
   end
@@ -43,9 +42,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to user_path(@user.id)
-  end
-  def follow_index
-    @user = User.find(current_user.id)
   end
 
   def destroy
@@ -91,14 +87,16 @@ class UsersController < ApplicationController
         reset_session
         flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
         redirect_to root_path
-    end
+  end
+
   def search
   end
 
-  def following_index
+  def following
     @user = User.find(current_user.id)
   end
-  def follower_index
+
+  def by_follower
     @user = User.find(current_user.id)
   end
 

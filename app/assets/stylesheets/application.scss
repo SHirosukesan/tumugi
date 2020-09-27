@@ -54,7 +54,7 @@ main {
 // フッター tugumi--------------------------------------------
 footer {
   width: 100%;
-  height: 70px;
+  height: 80px;
   text-align: center;
   line-height: 70px;
   background-color: saddlebrown;
@@ -87,4 +87,21 @@ h3:after {
 }
 
 
+//--------header----------------------------------------------------
+
+header {
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  line-height: 70px;
+  background-color: saddlebrown;
+  margin: auto 0;
+}
+
+
+
 //----tugumi-----------------------------------------------------------
+
+.home{
+	height: 550px;
+}

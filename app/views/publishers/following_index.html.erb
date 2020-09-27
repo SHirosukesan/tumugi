@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+    	<h3>ボランティア受付一覧</h3>
+    	<div class="kokuban-s3" >
+			<% @users.each do |user| %>
+				 <% user.users_publishers.each do |users_publisher| %>
+			 <div>
+			 	<%#= link_to user_path(follower.id) do %>
+			 	 <%= users_publisher.user.id %>
+				  :ニックネーム&emsp;<%= users_publisher.user.nickname %>&emsp;&emsp;
+				  :年齢<%= users_publisher.user.age %>歳
+		          :場所<%= users_publisher.user.prefecture %>
+		          <br>
+		          <br>
+		        <%#end%>
+		     </div>
+				<% end %>
+			<% end %>
+		</div>
+
+
+
+
+

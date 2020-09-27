@@ -15,10 +15,13 @@ class RoomsController < ApplicationController
     else
       redirect_back(fallback_location: root_path)
     end
-  end
+   end
 
   def index
    @rooms =  current_user.rooms
-    
+  end
+  def room
+  	@user = User.find(params[current_user])
+  	@publisher = Publisher.find(params[current_publisher])
   end
 end
