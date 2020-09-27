@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   get 'users/edit_address'
   get 'users/edit_profile'
   get 'users/edit_prefecture'
-  get 'users/follow_index'
   #---------------------------------------------------------チャットアプリ
   # ーーーーーーーーーーーーーーーーーーーーーーーーーuserのformの
 # userのroutes
@@ -46,10 +45,11 @@ Rails.application.routes.draw do
   get 'publisher_match' => 'users_publishers#publisher_match', as: 'publisher_match' # フォローする
   get 'publisher_unmatch' => 'users_publishers#publisher_unmatch', as: 'publisher_unmatch'
   # # フォロー外す#--------------------------フォローフォロワー--------------------------------------------
+  get "by_follower" => "users#by_follower",as:"by_follower"
   post "follower/users/:id" => "relationships#unfollow",as:"unfollow"
   post "follow/users/:id" => "relationships#follow",as:"follow"
-  get "following_index" => "users#following_index"
-  get "follower_index" => "users#follower_index"
+  get "following_index" => "publishers#following_index",as:"following_index"
+  get 'users/following' => "users#following",as:"following"
 #---------------------------search機能------------------------------------------------------------
   get "search" => "users#search"
 

@@ -1,0 +1,18 @@
+<!--ログインuserに紐づいている。複数のフォローユーザーだからeachでまわす-->
+<%= link_to user_path(current_user.id) do %>
+	     <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
+<% end %>
+<h3>連絡しようと声かけてきた人｜フォロー｜</h3>
+<div class="kokuban-s2">
+	        <!--  user.rb15行目からfollowing_userを取ってきている -->
+	<% @user.following_user.each do |following| %>
+	<div>
+	   <%= link_to user_path(following.id) do %>
+			<%=attachment_image_tag(following.images[0],:image ,:fill,150,150,fallback:"noimg.jpg",size:"100x100") %>
+			:ニックネーム&emsp;<%=following.nickname%> &emsp; &emsp;
+			:年齢<%=following.age%>才
+	       <hr>
+       <% end %>
+    </div>
+<% end %>
+</div>

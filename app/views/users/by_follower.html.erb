@@ -1,0 +1,16 @@
+<%= link_to user_path(current_user.id) do %>
+	     <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
+	<% end %>
+<h3>連絡しようと声かけしている人｜フォロワー｜</h3>
+<div class="kokuban-s2" >
+	<% @user.follower_user.each do |follower| %>
+	<div>
+	<%= link_to user_path(follower.id) do %>
+		<%=attachment_image_tag(follower.images[0],:image ,:fill,150,150,fallback:"noimg.jpg",size:"100x100") %>
+		:ニックネーム&emsp;<%=follower.nickname%> &emsp; &emsp;
+		:年齢<%=follower.age%>才
+       <hr>
+    <%end%>
+    </div>
+<% end %>
+</div>

@@ -1,4 +1,29 @@
-<% @rooms.each do |room| %>
-   <%= room.user_id %>
-  <%= room.messages.last.message %>
+<% if user_signed_in? %>
+	<%= link_to user_path(current_user.id) do %>
+	     <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
+	<% end %>
+<% elsif publishers_signed_in?%>
+	<%= link_to publisher_path do %>
+	     <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
+	<% end %>
+<% end %>
+
+<h3>連絡掲示板(マッチング者)</h3>
+
+<% if user_signed_in? %>
+<div class="kokuban-s2">
+	<% @rooms.each do |room| %>
+	<h1><b><%= room.id %></b>お喋りの場所</h1>
+    <div>
+		<%= link_to room_path(room.id) do %>
+		<% room.users.each do |user| %>
+	     <%=attachment_image_tag(user.images[0],:image ,:fill,150,150,fallback:"noimg.jpg",size:"100x100") %>
+	     <%=user.nickname%>&emsp;
+	     <%=user.age%>歳
+	     <%end%>
+		<hr>
+	    <% end %>
+	</div>
+	<% end %>
+</div>
 <% end %>

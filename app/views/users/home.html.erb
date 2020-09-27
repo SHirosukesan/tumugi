@@ -1,5 +1,6 @@
 <div class="row">
-   <div class="col-md-4 col-md-offset-4">
+   <div class="col-md-4 col-md-offset-4 home">
+   	<%= flash[:erorr] %>
 	<h3><b>ユーザー側</b></h3>
 	<p>	&#9786;友人作成・グループ作成・企業やその他お手伝い・情報発信　※email:hoge@hgoe pasward:123456</p>
 		<span class="btn btn-default navbar-btn"><i class="im im-accessibility"></i><br><%= link_to 'ユーザー〜ログイン〜', new_user_session_path %></span>

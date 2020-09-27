@@ -1,38 +1,47 @@
-<div class="left-button">
-  <%= link_to "room一覧に戻る",rooms_path,class:"edit-link" %>
+<div class="row">
+        <div class="col-md-5 col-md-offset-3">
+			<h3 class="rooms-title">連絡の取り合いが可能になりました</h3>
+			<% @entries.each do |e| %>
+			  <div class="user-name">
+			  <strong>
+			<!--     <%#= image_tag e.user, class:"user-image" %>
+			 -->      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
+			        <%= e.user.nickname %>さん
+			      </a>
+			  </strong>
+			  </div>
+			<% end %>
+			<hr>
+			<div class="chats">
+			  <div class="chat">
+			    <% if @messages.present? %>
+			      <% @messages.each do |m| %>
+			        <div class="chat-box">
+			          <!-- <div class="chat-face">
+			            <%#= image_tag m.user.avatar, class:"user-image" %> -->
+			          <!-- </div> -->
+			          <div class="chat-hukidashi">
+                      <%=attachment_image_tag(m.user.images[0],:image ,:fill, 150,150,fallback:"noimg.jpg",size:"100x100") %>
+			          	<strong><%=m.user.nickname%>&emsp;&emsp;:<span class="back-color"><%= m.message %></strong></span><br>
+			            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+			            <hr>
+			          </div>
+			        </div>
+			      <% end %>
+			    <% end %>
+			  </div>
+			  <div class="posts">
+			    <%= form_for @message do |f| %>
+			      <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+			        <%= f.hidden_field :room_id, value: @room.id %>
+			          <%= f.submit "送信",class: 'form-submit'%>
+			    <% end %>
+			  </div>
+			</div>
 </div>
-<h4 class="rooms-title">気になる同士</h4>
-<% @entries.each do |e| %>
-  <div class="user-name">
-  <strong>
-<!--     <%#= image_tag e.user, class:"user-image" %>
- -->      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        <%= e.user.name %>さん
-      </a>
-  </strong>
-  </div>
-<% end %>
-<hr>
-<div class="chats">
-  <div class="chat">
-    <% if @messages.present? %>
-      <% @messages.each do |m| %>
-        <div class="chat-box">
-          <!-- <div class="chat-face">
-            <%#= image_tag m.user.avatar, class:"user-image" %> -->
-          <!-- </div> -->
-          <div class="chat-hukidashi"> <strong><%= m.message %></strong> <br>
-            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="posts">
-    <%= form_for @message do |f| %>
-      <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "投稿",class: 'form-submit'%>
-    <% end %>
-  </div>
+<div class="col-md-2">
+  <br>
+  <%= link_to "メッセージ一覧に戻る",rooms_path,class:"edit-link btn btn-default" %>
+  <br>
+  <%= link_to "自己紹介ページに戻る",user_path(current_user.id),class:"edit-link btn btn-default" %>
 </div>

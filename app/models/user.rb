@@ -7,8 +7,13 @@ class User < ApplicationRecord
   has_many :users_publishers, dependent: :destroy
 #--------------フォロー機能-------------------------------------------------------------------------------------------------------
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
+  # (つなげている　followerキーワード　calass_name仮想的にfollowerをRelationshipに作っている。外部キーもここで作っている　　　)
+
+
+
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :following_user, through: :follower, source: :followed # 自分がフォロー>している人
+  # user.followinguserで全部出る？そのための決まり文句10行目を使うための
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
  #---------------------------------------UserPublisher-----------------------------------------------------------------------
   has_many :matcher, class_name: "UsersPublisher", foreign_key: "follower_id", dependent: :destroy # フォロー取得
@@ -66,9 +71,10 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
-end
-# -------------------------------------------退会user-----------------------------------------------------------------
 
-def active_for_authentication?
+  # -------------------------------------------退会user-----------------------------------------------------------------
+
+  def active_for_authentication?
     super && (self.is_withdrawal == false)
+  end
 end

@@ -107,10 +107,10 @@
       <br>
              <span class="btn btn-default navbar-btn col-md-11"><h4><b>プロフィール編集・確認</b></h4><br><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
 
-             <span class="btn btn-default navbar-btn col-md-11"><h4><b>声かけした人<br>｜フォロー｜</b></h4><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+             <span class="btn btn-default navbar-btn col-md-11"><h4><b>声かけした人<br>｜フォロー｜</b></h4><%= link_to '押してください', following_path, class: 'btn btn-default navbar-btn' %></span>
 
-             <span class="btn btn-default navbar-btn col-md-11"><br><h4><b>声かけてきている人<br>｜フォロワー|</b></h4><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+             <span class="btn btn-default navbar-btn col-md-11"><br><h4><b>声かけてきている人<br>｜フォロワー|</b></h4><%= link_to '押してください', by_follower_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
 
-             <span class="btn btn-default navbar-btn col-md-11"><h4><b>会話をする<br>｜トークルームへ｜</b></h4><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
+             <span class="btn btn-default navbar-btn col-md-11"><h4><b>会話をする<br>｜トークルームへ｜</b></h4><%= link_to '押してください', rooms_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
       </div>
 </div>
