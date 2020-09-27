@@ -78,11 +78,13 @@
                         <% if @isRoom == true %>
                           <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
                         <% else %>
+                        <% if @user_all.present? %>
                           <%= form_for @room do |f| %>
                             <%= fields_for @entry do |e| %>
                               <%= e.hidden_field :user_id, value: @user.id %>
                             <% end %>
                             <span class=""><%= f.submit "メールする場所へ移動する", class:"btn btn-primary btn-lg user-show-chat"%></span>
+                          <% end %>
                           <% end %>
                          <% end %>
                         <% end %>
