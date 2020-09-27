@@ -152,23 +152,23 @@ end
 
 
 
-# 5.times do |n|
-#   publisher = Publisher.new(
-#     email: "test#{n + 1}@test.com",
-#     nicname: "テスト太郎#{n + 1}",
-#     profile: "ここここここここここお子ここここここっこここここここここｋ",
-#     password: "123456"
-#   )
-#   publisher.save
-#   Publisher_image.create(
-#     publisher_id: publisher.id,
-#     publisher_image: File.open('./app/assets/images/home_usagu.jpg')
-#   )
-#   Publisher_image.create(
-#     publisher_id: publisher.id,
-#     publisher_image: File.open('./app/assets/images/home_usagu.jpg')
-#   )
-# end
+5.times do |n|
+  publisher = Publisher.new(
+    email: "test#{n + 1}@test.com",
+    nicname: "テスト太郎#{n + 1}",
+    profile: "ここここここここここお子ここここここっこここここここここｋ",
+    password: "123456"
+  )
+  publisher.save
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/home_usagu.jpg')
+  )
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/home_usagu.jpg')
+  )
+end
 
 
 
@@ -230,7 +230,7 @@ end
 
 
 
-#--------------------------事前に作っていたやつ-------------------------------------------------------------
+# --------------------------事前に作っていたやつ-------------------------------------------------------------
 # 5.times do |n|
 #     Publisher.create!(
 #       email: "test#{n + 1}@test.com",
@@ -254,4 +254,4 @@ end
 
 
 
-#----------------ーーーー-----------------------------------------------------------------
+# ----------------ーーーー-----------------------------------------------------------------
