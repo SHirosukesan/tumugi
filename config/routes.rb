@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   get "following_index" => "publishers#following_index",as:"following_index"
   get 'users/following' => "users#following",as:"following"
 #---------------------------search機能------------------------------------------------------------
-  get "search" => "users#search"
+  get "search" => "users#search",as:"search"
 
   # # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
   # resources :users, only: [:show,:edit,:update]

@@ -10,33 +10,39 @@ class UsersController < ApplicationController
   end
 
   def show
+    if user_signed_in?
+      @users =User.all
+      #---------ニックネームとか出すよう-----------------------------------------------
+      @user=User.find(params[:id])
+      #-------------ひとりひとりの情報を持ってくる--------------------------
+      #------------上edit_pageにも使っている,下でも使っているDm機能で------------------------------------------
+      @currentUserEntry=Entry.where(user_id: current_user.id)
+      #現在ログインしているユーザー-------------------------whereで条件に合う人を全て持ってきている-----------------------------------------------------
+      @userEntry=Entry.where(user_id: @user.id)
+      @room = Room.new
+      @entry = Entry.new
+      # Relationships.where(follower_id: current_user.id)
+      @user_all = current_user.following_user & current_user.follower_user
+      # unless @user.id == current_user.id
+      #   @currentUserEntry.each do |cu|
+      #     @userEntry.each do |u|
+      #       if cu.room_id == u.room_id then
+      #         @isRoom = true
+      #         @roomId = cu.room_id
+      #       end
+      #     end
+      #   if @isRoom
+      #   else
+      #     @room = Room.new
+      #     @entry = Entry.new
+      #   end
+      # end
+      # end
+    end
+   if user_signed_in?
     @users =User.all
-    #---------ニックネームとか出すよう-----------------------------------------------
     @user=User.find(params[:id])
-    #-------------ひとりひとりの情報を持ってくる--------------------------
-    #------------上edit_pageにも使っている,下でも使っているDm機能で------------------------------------------
-    @currentUserEntry=Entry.where(user_id: current_user.id)
-    #現在ログインしているユーザー-------------------------whereで条件に合う人を全て持ってきている-----------------------------------------------------
-    @userEntry=Entry.where(user_id: @user.id)
-    @room = Room.new
-    @entry = Entry.new
-    # Relationships.where(follower_id: current_user.id)
-    @user_all = current_user.following_user & current_user.follower_user
-    # unless @user.id == current_user.id
-    #   @currentUserEntry.each do |cu|
-    #     @userEntry.each do |u|
-    #       if cu.room_id == u.room_id then
-    #         @isRoom = true
-    #         @roomId = cu.room_id
-    #       end
-    #     end
-    #   if @isRoom
-    #   else
-    #     @room = Room.new
-    #     @entry = Entry.new
-    #   end
-    # end
-    # end
+   end
   end
   def edit
     @user=User.find(current_user.id)
@@ -94,6 +100,7 @@ class UsersController < ApplicationController
   end
 
   def search
+    @users = User.search(params[:search])
   end
 
   def following
