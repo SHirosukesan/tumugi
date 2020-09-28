@@ -1,5 +1,5 @@
 <div class="row">
-  <%= link_to rooms_path do %>
+  <%= link_to publishers_index_path do %>
             <h1>&emsp;<b>＜＜＜</b>&emsp;</h1>
   <% end %>
    <div class="col-md-8">
@@ -12,6 +12,7 @@
                    <%=attachment_image_tag(@user.images[0],:image ,:fill,150,150,fallback:"noimg.jpg",size:"100x100") %>
                  </th>
       <!-----------------複数画像投稿---------------------------------------->
+           <% if current_user.id == current_user %>
                  <th>
                     <%= form_for(@user) do |f| %>
                     <p>画像<%= f.attachment_field :images_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
@@ -19,6 +20,7 @@
                     <% end %>
                  </th>
                  <th>
+          <% end %>
                      <div id="list"><!-- プレビュー機能 下に生かしたい。-->
                        <% @user.images.each do |image| %>
                        <th><%= attachment_image_tag image, :image, size:'50x50', fallback: "noimg.jpg" %></th>
@@ -102,6 +104,7 @@
                </table>
        </div>
     </div>
+  <% if current_user.id == current_user %>
      <div class="col-md-4">
       <br>
              <span class="btn btn-default navbar-btn col-md-11"><h4><b>プロフィール編集・確認</b></h4><br><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
@@ -112,4 +115,5 @@
 
              <span class="btn btn-default navbar-btn col-md-11"><h4><b>会話をする<br>｜トークルームへ｜</b></h4><%= link_to '押してください', rooms_path(@user.id), class: 'btn btn-default navbar-btn' %></span>
       </div>
+  <% end %>
 </div>
