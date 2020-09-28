@@ -8,37 +8,37 @@
             <p>&#149;プロフィールは履歴書がわりにもなるので仕事と繋がる方はできるだけきっちり書きましょう！！</p>
             <hr>
             <h5><b>&diams;マイページ項目</b></h5>
-            <div class="c">
+            <div>
                 <%= link_to users_edit_nickname_path do %>
-                    <p class="btn btn-default navbar-btn">ニックネーム &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.nickname%></p>
+                    <p class="btn btn-default navbar-btn b">ニックネーム &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.nickname%></p>
                 <% end %>
             </div>
             <div>
                 <%= link_to users_edit_prefecture_path do %>
-                    <p class="btn btn-default navbar-btn">お住まいの都道府県 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.prefecture%></p>
+                    <p class="btn btn-default navbar-btn b">お住まいの都道府県 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.prefecture%></p>
                 <% end %>
             </div>
             <div>
                 <%= link_to users_edit_nickname_path do %>
-                    <p class="btn btn-default navbar-btn">仕事・前職 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=%></p>
+                    <p class="btn btn-default navbar-btn b">仕事・前職 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=%></p>
                 <% end %>
             </div>
             <div>
                 <%= link_to users_edit_age_path do %>
-                    <p class="btn btn-default navbar-btn">年齢 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.age%></p>
+                    <p class="btn btn-default navbar-btn b">年齢 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.age%></p>
                 <% end %>
             </div>
             <div>
                 <%= link_to users_edit_nickname_path do %>
-                    <p class="btn btn-default navbar-btn">趣味・特技 以前の趣味 特技 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=%></p>
+                    <p class="btn btn-default navbar-btn b">趣味・特技 以前の趣味 特技 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=%></p>
                 <% end %>
             </div>
             <div>
                 <%= link_to users_edit_profile_path do %>
-                    <p class="btn btn-default navbar-btn">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
+                    <p class="btn btn-default navbar-btn b">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
                 <% end %>
-                <div>
-                    <h3>自己紹介内容</h3>
+                <h3>自己紹介内容</h3>
+                <div class="c">
                     <p><%=@user.profile%></p>
                 </div>
             </div>
@@ -46,22 +46,22 @@
             <h5><b>&diams;履歴書飲みに表示させる項目</b></h5>
             <div>
                 <%= link_to users_edit_number_path do %>
-                    <p class="btn btn-default navbar-btn">電話番号 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.number%></p>
+                    <p class="btn btn-default navbar-btn b">電話番号 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.number%></p>
                 <% end %>
             </div>
             <div>
                 <%= link_to users_edit_firstname_lastname_path do %>
-                    <p class="btn btn-default navbar-btn">名前(姓・名) &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;姓<%=@user.firstname%>名<%=@user.lastname%></p>
+                    <p class="btn btn-default navbar-btn b">名前(姓・名) &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;姓<%=@user.firstname%>名<%=@user.lastname%></p>
                 <% end %>
             </div>
             <div>
                 <%= link_to users_edit_postalcode_path do %>
-                    <p class="btn btn-default navbar-btn">郵便番号 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.postalcode%></p>
+                    <p class="btn btn-default navbar-btn b">郵便番号 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.postalcode%></p>
                 <% end %>
             </div>
             <div>
                 <%= link_to users_edit_address_path do %>
-                    <p class="btn btn-default navbar-btn">住所 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.address%></p>
+                    <p class="btn btn-default navbar-btn b">住所 &emsp; &emsp; &emsp; &emsp; &emsp;> &emsp;<%=@user.address%></p>
                 <% end %>
             </div>
     </div>

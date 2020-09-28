@@ -27,7 +27,7 @@ class PublishersController < ApplicationController
   def update
     @publisher = Publisher.find(params[:id])
     @publisher.update(publisher_params)
-    redirect_to publisher_path(@publisher.id)
+    redirect_to edit_publisher_path(@publisher.id)
   end
 
   def destroy
@@ -37,7 +37,41 @@ class PublishersController < ApplicationController
   	@users = User.all
   end
 
-  
+  def edit_company_name
+    @publisher = Publisher.find(current_publisher.id)
+  end
+
+  def edit_age
+    @publisher = Publisher.find(current_publisher.id)
+  end
+
+  def edit_profile
+    @publisher = Publisher.find(current_publisher.id)
+  end
+
+  def edit_number
+    @publisher = Publisher.find(current_publisher.id)
+  end
+
+  def edit_address
+   @publisher = Publisher.find(current_publisher.id)
+  end
+
+  def edit_postalcode
+    @publisher = Publisher.find(current_publisher.id)
+  end
+
+  def edit_firstname_lastname
+    @publisher = Publisher.find(current_publisher.id)
+  end
+
+  def edit_prefecture
+    @publisher = Publisher.find(current_publisher.id)
+  end
+
+
+
+
   private
 
   def publisher_params

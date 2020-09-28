@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       # end
       # end
     end
-   if user_signed_in?
+   if publisher_signed_in?
     @users =User.all
     @user=User.find(params[:id])
    end
