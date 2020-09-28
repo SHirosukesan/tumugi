@@ -104,7 +104,7 @@
                </table>
        </div>
     </div>
-  <% if current_user.id == current_user %>
+  <% if current_user.id == @user.id %>
      <div class="col-md-4">
       <br>
              <span class="btn btn-default navbar-btn col-md-11"><h4><b>プロフィール編集・確認</b></h4><br><%= link_to '押してください', edit_user_path(@user.id), class: 'btn btn-default navbar-btn' %></span>

@@ -14,11 +14,6 @@
    <body>
     <header>
                 <span class="tugumi "><%= link_to '<<<', root_path %>  紡ぎ~Tumugi~</span>
-                <span class="glyphicon glyphicon-search">
-                <%= form_tag(search_path,:method => 'get') do %>
-                    <%= text_field_tag :search %>
-                    <%= submit_tag '検索', :name => nil %>
-                <% end %>
                 </span >
             <div class="navbar-right">
               <!--会員がログインしている場合の表示 -->
@@ -26,7 +21,7 @@
 	                <span class="btn btn-default navbar-btn"><i class="im im-smiley-o"></i><br><%= link_to '利用者一覧', publishers_index_path %></span>
 	                <span class="btn btn-default navbar-btn"><i class="im im-user-circle"></i><br><%= link_to '自己紹介ページ', user_path(current_user.id) %></span>
 	                <span class="btn btn-default navbar-btn"><i class="im im-diamond-o"></i><br><%= link_to 'マッチング（メール）', rooms_path %></span>
-	                <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to '相手から・自分から(連絡)', following_path%></span>
+	                <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to '自分から(連絡)', following_path%></span>
 	                <span class="btn btn-default navbar-btn"><i class="im im-users"></i><br><%= link_to '相手から(連絡)', by_follower_path%></span>
 	                <span class="btn btn-default navbar-btn"><i class="im im-support"></i></i><br><%= link_to 'ボランティア（依頼一覧）', users_path %></span>
 	                <!--管理者がログインしている場合の表示-->
@@ -42,7 +37,14 @@
     <main>
     <%= flash[:notice] %>
     <%= flash[:erorr] %>
-
+  <% if user_signed_in? %>
+       <span class="seatch_form">
+                    <%= form_tag(search_path,:method => 'get') do %>
+                        <%= text_field_tag :search %>
+                        <%= submit_tag '検索', :name => nil %>
+                    <% end %>
+       </span>
+   <% end %>
     <%= yield %>
   </main>
     <footer>
