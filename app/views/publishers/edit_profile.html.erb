@@ -5,7 +5,7 @@
           <% end %>
           <hr>
           <div>
-            <%= form_with model: @publisher,url: publisher_path(@publisher.id) do |form| %>
+            <%= form_with model: @publisher,url:publisher_path(@publisher.id) do |form| %>
             <b>プロフィール200文字:</b><%= form.text_area :profile , :size=>"50x10"%>
             <br>
             <br>

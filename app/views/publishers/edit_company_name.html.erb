@@ -5,7 +5,7 @@
           <% end %>
           <hr>
           <div>
-            <%= form_with model: @publisher,url: publisher_path(@publisher.id) do |form| %>
+            <%= form_with model: @publisher,url:publisher_path(@publisher.id) do |form| %>
             会社・施設名：<%= form.text_field :company_name %>
             <br>
             <br>

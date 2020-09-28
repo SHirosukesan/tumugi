@@ -12,15 +12,15 @@
                    <%=attachment_image_tag(@user.images[0],:image ,:fill,150,150,fallback:"noimg.jpg",size:"100x100") %>
                  </th>
       <!-----------------複数画像投稿---------------------------------------->
-           <% if current_user.id == current_user %>
+          <% if current_user.id == @user.id %>
                  <th>
                     <%= form_for(@user) do |f| %>
                     <p>画像<%= f.attachment_field :images_images, multiple: true, onchange: "onclick_preiew_image();" %></p>
                     <%= f.submit "送信"%>
                     <% end %>
                  </th>
-                 <th>
           <% end %>
+                 <th>
                      <div id="list"><!-- プレビュー機能 下に生かしたい。-->
                        <% @user.images.each do |image| %>
                        <th><%= attachment_image_tag image, :image, size:'50x50', fallback: "noimg.jpg" %></th>
@@ -32,9 +32,7 @@
         <!--------------------------------------画像埋め込んで表示している------------------------------------------>
 
         <!---------------------------------プレビュー機能のid---------->
-                       </th>
-                      </tr>
-                    </thead>
+
                 <tbody>
                   <tr>
                     <td>
