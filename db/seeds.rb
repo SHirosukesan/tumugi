@@ -130,7 +130,7 @@ end
 end
 1.times do |n|
   user = User.new(
-    email: "test#{n + 20}@test.com",
+    email: "test#{n + 21}@test.com",
     nickname: "昔話に出てきますか？#{n + 1}",
     age: "300",
     prefecture: "室町",
@@ -148,6 +148,9 @@ end
   )
 end
 
+
+
+
 #-------------------------publisher側-------------------------------------------------
 
 
@@ -155,103 +158,121 @@ end
 5.times do |n|
   publisher = Publisher.new(
     email: "test#{n + 1}@test.com",
-    nicname: "テスト太郎#{n + 1}",
-    profile: "ここここここここここお子ここここここっこここここここここｋ",
+    company_name: "特別養護老人ホームかが森#{n + 1}",
+    number:"06-6686-5301",
+    address: "北海道",
+    profile: "初めまして特別養護老人ホームかが森です。現在施設の入居者様の活気があまりありません同年代の方と楽しく遊ぶことができると本人たちもやる気が出てくるのでわ？と感じるのですが、協力していただける方募集しております。",
     password: "123456"
   )
   publisher.save
   PublisherImage.create(
     publisher_id: publisher.id,
-    publisher_image: File.open('./app/assets/images/home_usagu.jpg')
+    publisher_image: File.open('./app/assets/images/achilles_old_woman.png')
   )
   PublisherImage.create(
     publisher_id: publisher.id,
-    publisher_image: File.open('./app/assets/images/home_usagu.jpg')
+    publisher_image: File.open('./app/assets/images/kotowaza_hato_mamedeppou.png')
+  )
+end
+
+5.times do |n|
+  publisher = Publisher.new(
+    email: "test#{n + 5}@test.com",
+    company_name: "80歳代集まれ！BgBgAg#{n + 1}",
+    number:"092-512-0695",
+    address:"関西地方全域、電話してきてください",
+    profile: "80歳代の高齢の方のパーティーを開催しようと考えている会社です。率先して盛り上げていただける方５名ほど男女問わず募集しております",
+    password: "123456"
+  )
+  publisher.save
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/roujin_party.png')
+  )
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/food_sushi_funamori.png')
+  )
+end
+
+5.times do |n|
+  publisher = Publisher.new(
+    email: "test#{n + 10}@test.com",
+    company_name: "アンジェリーナ#{n + 1}",
+    number:"092-512-0695",
+    address:"アメリカ",
+    profile: "ぬいぐるみを縫いたいので、頑張ってちょきちょき作っているのですがジ、ョリーっと失敗してしまします。使うのはハサミであってますか？誰か詳しい方教えていただきたいです",
+    password: "123456"
+  )
+  publisher.save
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/nuigurumi_tedukuri,.jpg')
+  )
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/setsubun_yakuyoke_iwashi.png')
+  )
+end
+
+5.times do |n|
+  publisher = Publisher.new(
+    email: "test#{n + 15}@test.com",
+    company_name: "伝説など昔話に詳しい方募集#{n + 1}",
+    number:"092-512-0695",
+    address:"天の川",
+    profile: "語り部さんとして過去の話をこどもたちに伝えていって欲しい。伝説や過去の言い伝えなど文化が変わり忘れられて入っているものを取り戻したい",
+    password: "123456"
+  )
+  publisher.save
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/dinosaur_dinosauroid_kyouryu_ningen.png')
+  )
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/fantasy_kodama.png')
+  )
+end
+
+5.times do |n|
+  publisher = Publisher.new(
+    email: "test#{n + 20}@test.com",
+    company_name: "役者さん募集#{n + 1}",
+    number:"092-512-0695",
+    address:"安土桃山城跡",
+    profile: "古くからの老舗です。味のある雰囲気を出したく高齢の方にコスプレしてもらい店をPRしてもらいたいです。仕事はイベントの１日のみ給料の代わりに旅行券と叙々苑を馳走します",
+    password: "123456"
+  )
+  publisher.save
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/youkai_jinmenken.png')
+  )
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/dinosaur_dinosauroid_kyouryu_ningen.png')
   )
 end
 
 
+1.times do |n|
+  publisher = Publisher.new(
+    email: "test#{n + 21}@test.com",
+    company_name: "探偵募集#{n + 1}",
+    number:"092-512-0695",
+    address:"東京",
+    profile: "潜入捜査をお願いします。成功報酬は１００万円一般の方に紛れ込むことのできるごく普通のご老人を５名探しています。体力に自信のある方はぜひ",
+    password: "123456"
+  )
+  publisher.save
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/building_tantei_jimusyo.png')
+  )
+  PublisherImage.create(
+    publisher_id: publisher.id,
+    publisher_image: File.open('./app/assets/images/animal_character_hamster_angry.png')
+  )
+end
 
-# 5.times do |n|
-#   publisher = Publisher.new(
-#     email: "test#{n + 5}@test.com",
-#     nicname: "テスト太郎#{n + 1}",
-#     profile: "ここここここここここお子ここここここっこここここここここｋ",
-#     password: "123456"
-#   )
-#   publisher.save
-#   Publisher_image.create(
-#     publisher_id: publisher.id,
-#     publisher_image: File.open('./app/assets/images/home_usagu.jpg')
-#   )
-#   Publisher_image.create(
-#     publisher_id: publisher.id,
-#     publisher_image: File.open('./app/assets/images/home_usagu.jpg')
-#   )
-# end
-
-
-# 5.times do |n|
-#   publisher = Publisher.new(
-#     email: "test#{n + 10}@test.com",
-#     nicname: "テスト太郎#{n + 1}",
-#     profile: "ここここここここここお子ここここここっこここここここここｋ",
-#     password: "123456"
-#   )
-#   publisher.save
-#   Publisher_image.create(
-#     publisher_id: publisher.id,
-#     publisher_image: File.open('./app/assets/images/home_usagu.jpg')
-#   )
-#   Publisher_image.create(
-#     publisher_id: publisher.id,
-#     publisher_image: File.open('./app/assets/images/home_usagu.jpg')
-#   )
-# end
-
-
-# 5.times do |n|
-#   publisher = Publisher.new(
-#     email: "test#{n + 15}@test.com",
-#     nicname: "テスト太郎#{n + 1}",
-#     profile: "ここここここここここお子ここここここっこここここここここｋ",
-#     password: "123456"
-#   )
-#   publisher.save
-#   Publisher_image.create(
-#     publisher_id: publisher.id,
-#     publisher_image: File.open('./app/assets/images/home_usagu.jpg')
-#   )
-#   Publisher_image.create(
-#     publisher_id: publisher.id,
-#     publisher_image: File.open('./app/assets/images/home_usagu.jpg')
-#   )
-# end
-
-
-
-# --------------------------事前に作っていたやつ-------------------------------------------------------------
-# 5.times do |n|
-#     Publisher.create!(
-#       email: "test#{n + 1}@test.com",
-#       nicname: "テスト会社#{n + 1}",
-#       # image: File.open('./app/assets/images/matiyakuba.jpg'),
-#       profile: "ここここここここここお子ここここここっこここここここここｋ",
-#       password: "123456"
-#     )
-#   end
-# 5.times do |n|
-#   publisher = Publisher.find(1)
-#   publisher.publisher_images.create!(
-#     email: "test#{n + 1}@test.com",
-#     nicname: "テスト会社#{n + 1}",
-#     # image: File.open('./app/assets/images/matiyakuba.jpg'),
-#     profile: "ここここここここここお子ここここここっこここここここここｋ",
-#     password: "123456",
-#     publisher_image_id:"travel_old_couple.japg.png"
-#   )
-# end
-
-
-
-# ----------------ーーーー-----------------------------------------------------------------

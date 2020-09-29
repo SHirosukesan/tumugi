@@ -1,35 +1,39 @@
- <div class="flex-container">
-	   <% @publishers.each do |publisher| %>
-                <div class="flex-item kakomi-tape2">
-                	<%= link_to publisher_path(publisher.id) do %>
-                <table class="table table-inverse table">
-			   	   <tr>
-			   		<th>
-							<!-- userのイメージ存在するか？ -->
-					 <% if publisher.publisher_images.present? %>
-                           <span style="display: inline-block;text-align: center;" >
-                           	<!-- -------------これを見ながらやる------------- -->
-                             <%= attachment_image_tag publisher.publisher_images[0], :publisher_image, size: '150x150' %>
-                            <!-- ---------------これを見ながらやる----------- -->
-							 <% else %>
-							 <%= image_tag 'noimg.jpg', size: '150x150' %>
-							 <% end %>
-					       </span>
-					 </th>
-			        </tr>
-			        <tr>
-						     <td>施設名:<%= publisher.company_name%></td><br>
-						     <td><%= publisher.competence %>場所</td><br>
-						     <td>住所:<%= publisher.address%></td><br>
-						     <br>
-				         <span class="a" >
-				         	<%= publisher.profile %>
-				         </span>
-					 </tr>
-			  </table>
-			  <%end%>
-			  </div>
-	  <% end %>
- </div>
+<div class="row">
+    <div class="flex-container col-md-8 col-md-offset-2">
+			 <div class="flex-container">
+				   <% @publishers.each do |publisher| %>
+			                <div class="flex-item kakomi-tape2">
+			                	<%= link_to publisher_path(publisher.id) do %>
+			                <table class="table table-inverse table">
+						   	   <tr>
+						   		<th>
+										<!-- userのイメージ存在するか？ -->
+								 <% if publisher.publisher_images.present? %>
+			                           <span style="display: inline-block;text-align: center;" >
+			                           	<!-- -------------これを見ながらやる------------- -->
+			                             <%= attachment_image_tag publisher.publisher_images[0], :publisher_image, size: '150x150' %>
+			                            <!-- ---------------これを見ながらやる----------- -->
+										 <% else %>
+										 <%= image_tag 'noimg.jpg', size: '150x150' %>
+										 <% end %>
+								       </span>
+								 </th>
+						        </tr>
+						        <tr>
+									     <td>施設名:<%= publisher.company_name%></td><br>
+									     <td><%= publisher.competence %>場所</td><br>
+									     <td>住所:<%= publisher.address%></td><br>
+									     <br>
+							         <span class="a" >
+							         	<%= publisher.profile %>
+							         </span>
+								 </tr>
+						  </table>
+						  <%end%>
+						  </div>
+				  <% end %>
+			 </div>
+	</div>
+</div>
 
 		<!-- コメリンク貼りたい -->
