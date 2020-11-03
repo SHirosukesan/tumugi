@@ -54,7 +54,8 @@ Rails.application.routes.draw do
   get "search" => "users#search",as:"search"
 
   # --------------------簡易ログイン--------------------------------------------------------------
-  get 'new_guest' => "users#new_guest",as:"new_guest"
+  post "new_guest" => "users#new_guest",as:"new_guest"
+  post "new_guest2" => "publishers#new_guest2",as:"new_guest2"
   # # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーresourcesたち
   # resources :users, only: [:show,:edit,:update]
   resources :messages, only: [:create]

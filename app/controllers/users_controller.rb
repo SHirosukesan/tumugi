@@ -112,12 +112,12 @@ class UsersController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(email: 'test1@test.com') do |user|
-      user.password = 123456
+    user = User.find_or_create_by!(email: "test1@test.com") do |user|
+      user.password = "123456"
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to users_path, notice: "ゲストユーザーとしてログインしました。"
   end
 
   private

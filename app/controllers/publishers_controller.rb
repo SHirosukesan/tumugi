@@ -69,7 +69,13 @@ class PublishersController < ApplicationController
     @publisher = Publisher.find(current_publisher.id)
   end
 
-
+  def new_guest2
+     publisher = Publisher.find_or_create_by!(email: "test1@test.com") do |publisher|
+     publisher.password = "123456"
+    end
+    sign_in publisher
+    redirect_to publishers_path, notice: "ゲストユーザーとしてログインしました。"
+  end
 
 
   private

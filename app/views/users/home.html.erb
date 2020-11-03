@@ -5,22 +5,25 @@
 			   <div class="col-md-6 col-md-offset-3 home">
 			   	<%= flash[:erorr] %>
 				<h3><b>ユーザー側</b></h3>
-				<p>	&#9786;友人作成・グループ作成・企業やその他お手伝い・情報発信　※email:test1@test.com pasward:123456</p>
+				<p>	&#9786;友人作成・グループ作成・企業やその他お手伝い・情報発信</p>
 					<span class="btn btn-default navbar-btn"><i class="im im-accessibility"></i><br><%= link_to 'ユーザー〜ログイン〜', new_user_session_path %></span>
 				     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				     &emsp;&emsp;&emsp;&emsp;
-				     <span class="btn btn-default navbar-btn"><i class="im im-accessibility"></i>&emsp;<i class="im im-pulse"></i><br><%= link_to 'ユーザー〜新規登録〜', new_user_registration_path %></span>
+				     <span class="btn btn-default navbar-btn"><i class="im im-accessibility"></i>&emsp;<i class="im im-pulse"></i>
+				     	<br><%= link_to 'ユーザー〜新規登録〜', new_user_registration_path %></span>
+				     <%= link_to 'ゲストログイン（user閲覧用）',new_guest_path, method: :post %>
 
 				<h3><b>掲載者側</b></h3>
-				<p>	&#9787;仕事の手伝い依頼・情報発信　※email:hoge@hgoe30 pasward:123456</p>
-					<span class="btn btn-default navbar-btn"><i class="im im-user-settings"></i>　<br><%= link_to "掲載者側〜ログイン〜",publishers_index_path%></span>
+				<p>&#9787;仕事の手伝い依頼・情報発信</p>
+					<span class="btn btn-default navbar-btn"><i class="im im-user-settings"></i>　<br><%= link_to "掲載者側〜ログイン〜",new_publisher_session_path%></span>
 				     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				     &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				     &emsp;&emsp;&emsp;&emsp;
-				     <%= link_to 'ゲストログイン（閲覧用）',new_guest_path, method: :post %>
+
 				     <span class="btn btn-default navbar-btn">
 				     	<i class="im im-user-settings"></i>&emsp;
 				     	<i class="im im-radio"></i><br><%= link_to '掲載者側〜新規登録〜', new_publisher_registration_path %></span>
+				     <%= link_to 'ゲストログイン（publisher閲覧用）',new_guest2_path, method: :post %>
 				</div>
 </div>
