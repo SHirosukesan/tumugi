@@ -51,7 +51,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
-gem 'rb-readline'
+#gem 'rb-readline'
 gem 'pry-rails'
 group :test do
   # Adds support for Capybara system testing and selenium driver
