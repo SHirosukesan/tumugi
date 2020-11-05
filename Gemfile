@@ -37,7 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'capybara', '~> 2.13'
+  gem 'selenium-webdriver'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -54,10 +56,6 @@ end
 #gem 'rb-readline'
 gem 'pry-rails'
 group :test do
- gem 'capybara', '>= 2.15'
-  gem 'rspec-rails'
-  gem "factory_bot_rails"
-  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
