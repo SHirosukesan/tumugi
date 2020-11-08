@@ -57,10 +57,14 @@
       </li> -->
 <!-- --------------------------------------footerの中身--------------------------------------------- -->
     <p class="footer-text">© All Rights Reserved By TETUDATTEYOBBA.<i class="fas fa-hamburger"></i>
-    <span class="btn btn-default navbar-btn"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
-    <span class="btn btn-default navbar-btn"><%= link_to 'Logout_publisher', destroy_publisher_session_path, method: :delete %></span>
   <% if user_signed_in? %>
-    <span class="btn btn-default navbar-btn">Goo<i class="im im-car"></i>bye!! &#9996;<br><%= link_to 'サイトを退会しデータを消す', users_hide_path(current_user.id),method: :put, data: { confirm: 'Are you sure?' } %></span>
+    <span class="btn btn-default navbar-btn"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
+  <% end %>
+  <% if publisher_signed_in? %>
+    <span class="btn btn-default navbar-btn"><%= link_to 'Logout_publisher', destroy_publisher_session_path, method: :delete %></span>
+  <% end %>
+  <% if user_signed_in? %>
+    <span class="btn btn-default navbar-btn">Good<i class="im im-car"></i>bye!! &#9996;<br><%= link_to 'サイトを退会しデータを消す', users_hide_path(current_user.id),method: :put, data: { confirm: 'Are you sure?' } %></span>
   <% end %>
 <!-----------------------user_signed_in?で誰が入っている？って聞かれているから下のリンク先はcurrent_userを記入------------------------->  </footer>
   </body>

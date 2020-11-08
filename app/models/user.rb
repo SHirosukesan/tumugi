@@ -78,6 +78,9 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_withdrawal == false)
   end
+  #---------------バリテーションモデル---------------------------------------------------------------------
+#validates :name, presence: true
+#validates :name, presence: true, length: { maximum: 30 }
 #------------------------------検索機能----------------------------------------------
   def self.search(search)
       if search
