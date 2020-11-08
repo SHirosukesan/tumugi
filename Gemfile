@@ -77,6 +77,9 @@ gem 'pry-byebug'
 gem 'kaminari'
 
 gem 'dotenv-rails'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'rails-i18n'
 group :production do
   gem 'mysql2'
 end
