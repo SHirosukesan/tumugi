@@ -34,10 +34,10 @@
                 <% end %>
             </div>
             <div>
-                <%= link_to users_edit_profile_path do %>
-                    <p class="btn btn-default navbar-btn b">自己紹介 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
-                <% end %>
                 <h3>自己紹介内容</h3>
+                <%= link_to users_edit_profile_path do %>
+                    <p class="btn btn-default navbar-btn b">自己紹介入力 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;　&#8744; &emsp;</p>
+                <% end %>
                 <div class="c">
                     <p><%=@user.profile%></p>
                 </div>
