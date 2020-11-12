@@ -96,15 +96,14 @@ validates :profile,length: { maximum: 200 }
 validates :age,length: { maximum: 150 }
 validates :competence,length: { maximum: 50 }
 validates :name,length: { minimum: 1, maximum: 20 }
-#------------------正規表現--------------------------------------------------------------------------------
+##------------------正規表現--------------------------------------------------------------------------------
 #ハイフン無し郵便番号
 validates :postalcode, format: {with: /\A\d{7}\z/}
-
-validates :number, format: {with: ^0\d(-\d{4}|\d-\d{3}|\d\d-\d\d|\d{3}-\d)-\d{4}$}
-#validates :number, format: {with: ^0[789]0-\d{4}-\d{4}$}
-#validates :number, format: {with: ^(0120|0800)-\d{3}-\d{3}$}
-#validates :postalcode, format: {with: /\A\d{7}\z/}
-#validates :postalcode, format: {with: /\A\d{7}\z/}
+# validates :number, format: {with: ^0\d(-\d{4}|\d-\d{3}|\d\d-\d\d|\d{3}-\d)-\d{4}$}
+# validates :number, format: {with: ^0[789]0-\d{4}-\d{4}$}
+# validates :number, format: {with: ^(0120|0800)-\d{3}-\d{3}$}
+# validates :postalcode, format: {with: /\A\d{7}\z/}
+# validates :postalcode, format: {with: /\A\d{7}\z/}
 #------------------------------検索機能----------------------------------------------
   def self.search(search)
       if search
