@@ -39,6 +39,7 @@ Dm機能やZoom通話などを使い直接アドバイスをしたり聞いた�
 
 
 ## 設計書
+<img width="1440" alt="スクリーンショット 2020-11-13 13 01 46" src="https://user-images.githubusercontent.com/65902435/99028306-c685dc80-25b2-11eb-9d2a-5efdb6096ea1.png">
 
 
 ### 機能一覧
