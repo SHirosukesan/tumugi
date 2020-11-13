@@ -6,7 +6,8 @@ README.md
 高齢者をターゲットにしたコミュニケーションサイトです。
 同年代の友達を作ったり、若い子と関わったり、ボランティアを見つけ企業と関わったりする事ができます。
 
-![fd0775b6210837cfbd84152a308a6178](https://user-images.githubusercontent.com/65902435/98911381-d98fa280-2507-11eb-89da-6b114a3b3e66.gif)
+![fd0775b6210837cfbd84152a308a6178](https://user-images.githubusercontent.com/65902435/99061507-049bf400-25e5-11eb-86c8-f8882d2066e6.gif)
+
 
 ### URL
 http://54.65.45.134/
