@@ -29,6 +29,7 @@ http://54.65.45.134/
 友達を作って遊ぶ! 喋る!楽しむ!→ここが解決するとかなり健康寿命が伸びる人が増えたり、医療コストの削減にも 繋がると感じております。
 以前7年間介護をしていた際に、このようなサイトがあったら高齢化社会の問題が少し解決して面白いかな？と感時ていたのでこのテーマを選びました。
 
+![roujin_party](https://user-images.githubusercontent.com/65902435/99143705-f3b1b800-26a2-11eb-92ff-7fa2883f174d.png)
 ![keirou_katamomi_couple2](https://user-images.githubusercontent.com/65902435/99143626-53f42a00-26a2-11eb-8fc2-2d4cc7cc3c2e.png)
 ![undou_isu_suwaritachi_squat_old](https://user-images.githubusercontent.com/65902435/99143596-08da1700-26a2-11eb-9d5c-e739026028c6.png)
 ### 主な利用シーン
