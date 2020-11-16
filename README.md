@@ -47,7 +47,8 @@ Dm機能やZoom通話などを使い直接アドバイスをしたり聞いた�
 ## 設計書
 <img width="1440" alt="スクリーンショット 2020-11-13 13 01 46" src="https://user-images.githubusercontent.com/65902435/99028306-c685dc80-25b2-11eb-9d2a-5efdb6096ea1.png">
 
-<img width="1440" alt="deow io ER図" src="https://user-images.githubusercontent.com/65902435/99028528-52980400-25b3-11eb-9b21-2af1c7ed7ee8.png">
+<img width="1440" alt="スクリーンショット 2020-11-17 4 54 17" src="https://user-images.githubusercontent.com/65902435/99301455-5d8fb480-2891-11eb-9d60-30f4551ee3bb.png">
+
 
 
 
@@ -63,7 +64,6 @@ Dm機能やZoom通話などを使い直接アドバイスをしたり聞いた�
 ・テスト(RSpec)
 ・退会機能（論理削除）
 ## 開発環境
-Ruby on Rails 5.2.4.3
 
 
 
@@ -73,6 +73,7 @@ Ruby on Rails 5.2.4.3
 
 
 
+- Ruby on Rails 5.2.4.3
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
