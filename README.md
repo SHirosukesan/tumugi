@@ -74,9 +74,9 @@ Dm機能やZoom通話などを使い直接アドバイスをしたり聞いた�
 
 
 
-- Ruby on Rails 5.2.4.3
+
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
+- 言語：HTML,CSS,JavaScript,Ruby
+- フレームワーク：Ruby on Rails 5.2.4.3
 - JSライブラリ：jQuery
 - 仮想環境：Vagrant,VirtualBox
