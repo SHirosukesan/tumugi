@@ -47,7 +47,8 @@ Dm機能やZoom通話などを使い直接アドバイスをしたり聞いた�
 ## 設計書
 <img width="1440" alt="スクリーンショット 2020-11-13 13 01 46" src="https://user-images.githubusercontent.com/65902435/99028306-c685dc80-25b2-11eb-9d2a-5efdb6096ea1.png">
 
-<img width="1440" alt="スクリーンショット 2020-11-17 4 54 17" src="https://user-images.githubusercontent.com/65902435/99301455-5d8fb480-2891-11eb-9d60-30f4551ee3bb.png">
+<img width="907" alt="c9cb9f4f110a11f62c69e8bc04533e2b" src="https://user-images.githubusercontent.com/65902435/99366629-35896b00-28fc-11eb-992d-7f987a124960.png">
+
 
 
 
