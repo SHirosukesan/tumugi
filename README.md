@@ -47,6 +47,7 @@ Dm機能やZoom通話などを使い直接アドバイスをしたり聞いた�
 ## 設計書
 <img width="814" alt="ER図2のコピー" src="https://user-images.githubusercontent.com/65902435/99432577-ae65e280-294f-11eb-9bb0-e7385af07854.png">
 
+<img width="418" alt="インフラ構成図" src="https://user-images.githubusercontent.com/65902435/99432785-fab12280-294f-11eb-961e-bb8b2eac0164.png">
 
 
 
