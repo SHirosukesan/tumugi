@@ -45,10 +45,8 @@ Dm機能やZoom通話などを使い直接アドバイスをしたり聞いた�
 
 
 ## 設計書
-<img width="417" alt="719706022de5cb20e60b27ee230e84b6" src="https://user-images.githubusercontent.com/65902435/99378045-5062dc00-290a-11eb-96c0-40bd0c880c49.png">
+<img width="814" alt="ER図2のコピー" src="https://user-images.githubusercontent.com/65902435/99432577-ae65e280-294f-11eb-9bb0-e7385af07854.png">
 
-
-<img width="907" alt="c9cb9f4f110a11f62c69e8bc04533e2b" src="https://user-images.githubusercontent.com/65902435/99366629-35896b00-28fc-11eb-992d-7f987a124960.png">
 
 
 
