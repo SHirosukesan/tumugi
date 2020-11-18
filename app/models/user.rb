@@ -96,7 +96,7 @@ validates :profile,length: { maximum: 200 }
 validates :age,length: { maximum: 150 }
 validates :competence,length: { maxismum: 50 }
 validates :name,length: { minimum: 1, maximum: 20 }
-s##------------------正規表現--------------------------------------------------------------------------------
+##------------------正規表現--------------------------------------------------------------------------------
 #ハイフン無し郵便番号
 # validates :postalcode, format: {with: /\A\d{7}\z/}
 
