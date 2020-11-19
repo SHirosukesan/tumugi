@@ -78,27 +78,6 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_withdrawal == false)
   end
-#---------------バリテーションモデル---------------------------------------------------------------------
-#------------------空欄--------------------------------------------------------------------------------
-# validates :nickname, presence: true
-# validates :address, presence: true
-# validates :number, presence: true
-# validates :profile, presence: true
-# validates :prefecture, presence: true
-# validates :age, presence: true
-# validates :competence, presence: true
-# validates :name, presence: true
-# #------------------文字数制限------------------------------------------------------------------------------
-# validates :nickname,length: { minimum: 1, maximum: 20 }
-# validates :address,length: { maximum: 50 }
-# validates :number,length: { maximum: 15 }
-# validates :profile,length: { maximum: 200 }
-# validates :age,length: { maximum: 150 }
-# validates :competence,length: { maxismum: 50 }
-# validates :name,length: { minimum: 1, maximum: 20 }
-##------------------正規表現--------------------------------------------------------------------------------
-#ハイフン無し郵便番号
-# validates :postalcode, format: {with: /\A\d{7}\z/}
 
 #------------------------------検索機能----------------------------------------------
   def self.search(search)
