@@ -12,7 +12,9 @@
 				     &emsp;&emsp;&emsp;&emsp;
 				     <span class="btn btn-default navbar-btn"><i class="im im-accessibility"></i>&emsp;<i class="im im-pulse"></i>
 				     	<br><%= link_to 'ユーザー〜新規登録〜', new_user_registration_path %></span>
-				     <%= link_to 'ゲストログイン（user閲覧用）',new_guest_path, method: :post %>
+				     <span class="btn btn-default navbar-btn">
+				     	<%= link_to '利用者かんたんログイン',new_guest_path, method: :post %>
+				     </span>
 
 				<h3><b>掲載者側</b></h3>
 				<p>&#9787;仕事の手伝い依頼・情報発信</p>
@@ -24,6 +26,8 @@
 				     <span class="btn btn-default navbar-btn">
 				     	<i class="im im-user-settings"></i>&emsp;
 				     	<i class="im im-radio"></i><br><%= link_to '掲載者側〜新規登録〜', new_publisher_registration_path %></span>
-				     <%= link_to 'ゲストログイン（publisher閲覧用）',new_guest2_path, method: :post %>
+				     <span class="btn btn-default navbar-btn">
+				     	<%= link_to '掲載者かんたんログイン',new_guest2_path, method: :post %>
+				 	 </span>
 				</div>
 </div>
