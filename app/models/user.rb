@@ -78,6 +78,7 @@ class User < ApplicationRecord
     super && (self.is_withdrawal == false)
   end
 
+
 #------------------------------検索機能----------------------------------------------
   def self.search(search)
       if search
