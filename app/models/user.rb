@@ -82,7 +82,7 @@ class User < ApplicationRecord
 
 
 
-
+#skokokokokokok
 
 #------------------------------検索機能----------------------------------------------
   def self.search(search)
