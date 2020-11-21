@@ -82,6 +82,8 @@ class User < ApplicationRecord
 
 
 
+
+
 #------------------------------検索機能----------------------------------------------
   def self.search(search)
       if search
