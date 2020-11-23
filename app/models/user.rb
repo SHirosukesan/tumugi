@@ -80,7 +80,7 @@ class User < ApplicationRecord
 
 
 
-
+#skosksoksoksoko
 #skokokokokokok
 
 #------------------------------検索機能----------------------------------------------
