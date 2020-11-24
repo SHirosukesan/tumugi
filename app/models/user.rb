@@ -80,7 +80,7 @@ class User < ApplicationRecord
   end
 #---------------バリテーションモデル---------------------------------------------------------------------
 
-
+#skosksoksoksokos
 #skosksoksoksoko
 #skokokokokokok
 
