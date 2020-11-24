@@ -79,7 +79,7 @@ class User < ApplicationRecord
   end
 
 
-
+#skosksoksoksokos
 #skosksoksoksoko
 #skokokokokokok
 
