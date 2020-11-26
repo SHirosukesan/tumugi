@@ -81,6 +81,8 @@ class User < ApplicationRecord
 #---------------バリテーションモデル---------------------------------------------------------------------
 
 #skosksoksoksokos
+#skosksoksoksokos
+#skosksoksoksokos
 #------------------------------検索機能----------------------------------------------
   def self.search(search)
       if search
