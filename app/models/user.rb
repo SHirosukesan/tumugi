@@ -80,11 +80,8 @@ class User < ApplicationRecord
 
 
 #skosksoksoksokos
-#skosksoksoksoko
-#skokokokokokok#skosksoksoksoko
-#skokokokokokok
-
-
+#skosksoksoksokos
+#skosksoksoksokos
 #------------------------------検索機能----------------------------------------------
   def self.search(search)
       if search
