@@ -84,7 +84,10 @@ class User < ApplicationRecord
 ##skosksoksoksokos
 #skosksoksoksokos
 #skosksoksoksokos
-#------------------------------検索機能----------------------------------------------
+#----------------
+
+#skosksoksoksokos
+#--------------検索機能----------------------------------------------
   def self.search(search)
       if search
         User.where(['nickname LIKE ?', "%#{search}%"])
