@@ -77,16 +77,11 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_withdrawal == false)
   end
+ 
+#---------------バリテーションモデル---------------------------------------
 
+  #skosksoksoksokos
 
-#skosksoksoksokos
-#skosksoksoksokos
-##skosksoksoksokos
-#skosksoksoksokos
-#skosksoksoksokos
-#----------------
-
-#skosksoksoksokos
 #--------------検索機能----------------------------------------------
   def self.search(search)
       if search
