@@ -74,10 +74,10 @@ class User < ApplicationRecord
   end
 
   # -------------------------------------------退会user-----------------------------------------------------------------
-
   def active_for_authentication?
     super && (self.is_withdrawal == false)
   end
+ 
 #---------------バリテーションモデル---------------------------------------
 
   #skosksoksoksokos
